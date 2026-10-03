@@ -63,7 +63,7 @@ pub fn run_app<F: FnOnce(&App<TauriRuntime>) + Send + 'static>(
   builder: tauri::Builder<TauriRuntime>,
   setup: F,
 ) {
-  // WebDriver automation bridge for the `@tauri-apps/api` e2e suite (packages/api-e2e).
+  // WebDriver automation bridge for the `@aphrody/api` e2e suite (packages/api-e2e).
   // Registered as early as possible per the plugin's docs. Behind the off-by-default
   // `automation` feature, and `not(test)` so it never interferes with the mock-runtime
   // unit test below.

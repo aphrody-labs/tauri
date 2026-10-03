@@ -73,8 +73,8 @@ export type MenuIcon = JsImage | NativeIcon
  *
  * @example
  * ```typescript
- * import { Image } from '@tauri-apps/api/image';
- * import { getCurrentWindow } from '@tauri-apps/api/window';
+ * import { Image } from '@aphrody/api/image';
+ * import { getCurrentWindow } from '@aphrody/api/window';
  *
  * const icon = await Image.fromPath('icons/icon.png');
  * await getCurrentWindow().setIcon(icon);
@@ -102,7 +102,7 @@ export class Image extends Resource {
    *
    * @example
    * ```typescript
-   * import { Image } from '@tauri-apps/api/image';
+   * import { Image } from '@aphrody/api/image';
    *
    * // a 1x1 opaque red image
    * const image = await Image.new(new Uint8Array([255, 0, 0, 255]), 1, 1);
@@ -136,7 +136,7 @@ export class Image extends Resource {
    *
    * @example
    * ```typescript
-   * import { Image } from '@tauri-apps/api/image';
+   * import { Image } from '@aphrody/api/image';
    *
    * const bytes = await fetch('/icon.png').then((r) => r.arrayBuffer());
    * const image = await Image.fromBytes(bytes);
@@ -170,8 +170,8 @@ export class Image extends Resource {
    *
    * @example
    * ```typescript
-   * import { Image } from '@tauri-apps/api/image';
-   * import { resolveResource } from '@tauri-apps/api/path';
+   * import { Image } from '@aphrody/api/image';
+   * import { resolveResource } from '@aphrody/api/path';
    *
    * const image = await Image.fromPath(await resolveResource('icons/icon.png'));
    * ```
@@ -191,7 +191,7 @@ export class Image extends Resource {
    *
    * @example
    * ```typescript
-   * import { Image } from '@tauri-apps/api/image';
+   * import { Image } from '@aphrody/api/image';
    *
    * const image = await Image.fromPath('icons/icon.png');
    * const rgba = await image.rgba();
@@ -210,7 +210,7 @@ export class Image extends Resource {
    *
    * @example
    * ```typescript
-   * import { Image } from '@tauri-apps/api/image';
+   * import { Image } from '@aphrody/api/image';
    *
    * const image = await Image.fromPath('icons/icon.png');
    * const { width, height } = await image.size();

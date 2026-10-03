@@ -73,7 +73,7 @@ export enum BundleType {
  * Gets the application version.
  * @example
  * ```typescript
- * import { getVersion } from '@tauri-apps/api/app';
+ * import { getVersion } from '@aphrody/api/app';
  * const appVersion = await getVersion();
  * ```
  *
@@ -87,7 +87,7 @@ async function getVersion(): Promise<string> {
  * Gets the application name.
  * @example
  * ```typescript
- * import { getName } from '@tauri-apps/api/app';
+ * import { getName } from '@aphrody/api/app';
  * const appName = await getName();
  * ```
  *
@@ -102,7 +102,7 @@ async function getName(): Promise<string> {
  *
  * @example
  * ```typescript
- * import { getTauriVersion } from '@tauri-apps/api/app';
+ * import { getTauriVersion } from '@aphrody/api/app';
  * const tauriVersion = await getTauriVersion();
  * ```
  *
@@ -116,7 +116,7 @@ async function getTauriVersion(): Promise<string> {
  * Gets the application identifier.
  * @example
  * ```typescript
- * import { getIdentifier } from '@tauri-apps/api/app';
+ * import { getIdentifier } from '@aphrody/api/app';
  * const identifier = await getIdentifier();
  * ```
  *
@@ -134,7 +134,7 @@ async function getIdentifier(): Promise<string> {
  *
  * @example
  * ```typescript
- * import { show } from '@tauri-apps/api/app';
+ * import { show } from '@aphrody/api/app';
  * await show();
  * ```
  *
@@ -151,7 +151,7 @@ async function show(): Promise<void> {
  *
  * @example
  * ```typescript
- * import { hide } from '@tauri-apps/api/app';
+ * import { hide } from '@aphrody/api/app';
  * await hide();
  * ```
  *
@@ -170,7 +170,7 @@ async function hide(): Promise<void> {
  *
  * @example
  * ```typescript
- * import { fetchDataStoreIdentifiers } from '@tauri-apps/api/app';
+ * import { fetchDataStoreIdentifiers } from '@aphrody/api/app';
  * const ids = await fetchDataStoreIdentifiers();
  * ```
  *
@@ -192,7 +192,7 @@ async function fetchDataStoreIdentifiers(): Promise<DataStoreIdentifier[]> {
  *
  * @example
  * ```typescript
- * import { fetchDataStoreIdentifiers, removeDataStore } from '@tauri-apps/api/app';
+ * import { fetchDataStoreIdentifiers, removeDataStore } from '@aphrody/api/app';
  * for (const id of (await fetchDataStoreIdentifiers())) {
  *   await removeDataStore(id);
  * }
@@ -212,7 +212,7 @@ async function removeDataStore(uuid: DataStoreIdentifier): Promise<void> {
  *
  * @example
  * ```typescript
- * import { defaultWindowIcon } from '@tauri-apps/api/app';
+ * import { defaultWindowIcon } from '@aphrody/api/app';
  * const icon = await defaultWindowIcon();
  * ```
  *
@@ -234,7 +234,7 @@ async function defaultWindowIcon(): Promise<Image | null> {
  *
  * @example
  * ```typescript
- * import { setTheme } from '@tauri-apps/api/app';
+ * import { setTheme } from '@aphrody/api/app';
  * await setTheme('dark');
  * ```
  *
@@ -258,7 +258,7 @@ async function setTheme(theme?: Theme | null): Promise<void> {
  *
  * @example
  * ```typescript
- * import { setDockVisibility } from '@tauri-apps/api/app';
+ * import { setDockVisibility } from '@aphrody/api/app';
  * await setDockVisibility(false);
  * ```
  *
@@ -276,7 +276,7 @@ async function setDockVisibility(visible: boolean): Promise<void> {
  *
  * @example
  * ```typescript
- * import { getBundleType } from '@tauri-apps/api/app';
+ * import { getBundleType } from '@aphrody/api/app';
  * const type = await getBundleType();
  * ```
  *
@@ -310,8 +310,8 @@ type OnBackButtonPressPayload = {
  *
  * @example
  * ```typescript
- * import { onBackButtonPress } from '@tauri-apps/api/app';
- * import { exit } from '@tauri-apps/api/app';
+ * import { onBackButtonPress } from '@aphrody/api/app';
+ * import { exit } from '@aphrody/api/app';
  *
  * const listener = await onBackButtonPress(({ canGoBack }) => {
  *   if (canGoBack) {
@@ -358,8 +358,8 @@ async function onBackButtonPress(
  *
  * @example
  * ```typescript
- * import { supportsMultipleWindows } from '@tauri-apps/api/app';
- * import { WebviewWindow } from '@tauri-apps/api/webviewWindow';
+ * import { supportsMultipleWindows } from '@aphrody/api/app';
+ * import { WebviewWindow } from '@aphrody/api/webviewWindow';
  *
  * if (await supportsMultipleWindows()) {
  *   new WebviewWindow('settings', { url: '/settings' });
@@ -375,7 +375,7 @@ async function supportsMultipleWindows(): Promise<boolean> {
 /**
  * Exits the app with the given exit code.
  *
- * This is the same as the `exit` function of the `@tauri-apps/plugin-process` plugin,
+ * This is the same as the `exit` function of the `@aphrody/plugin-process` plugin,
  * but does not require a plugin to be installed.
  *
  * #### Platform-specific
@@ -385,7 +385,7 @@ async function supportsMultipleWindows(): Promise<boolean> {
  *
  * @example
  * ```typescript
- * import { exit } from '@tauri-apps/api/app';
+ * import { exit } from '@aphrody/api/app';
  * await exit(1);
  * ```
  *

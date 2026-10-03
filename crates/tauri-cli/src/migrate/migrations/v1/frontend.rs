@@ -38,32 +38,32 @@ const PLUGINIFIED_MODULES: [&str; 11] = [
 // (from, to)
 const MODULES_MAP: phf::Map<&str, &str> = phf::phf_map! {
   // renamed
-  "@tauri-apps/api/tauri" => "@tauri-apps/api/core",
-  "@tauri-apps/api/window" => "@tauri-apps/api/webviewWindow",
+  "@aphrody/api/tauri" => "@aphrody/api/core",
+  "@aphrody/api/window" => "@aphrody/api/webviewWindow",
   // pluginified
-  "@tauri-apps/api/cli" => "@tauri-apps/plugin-cli",
-  "@tauri-apps/api/clipboard" => "@tauri-apps/plugin-clipboard-manager",
-  "@tauri-apps/api/dialog" => "@tauri-apps/plugin-dialog",
-  "@tauri-apps/api/fs" => "@tauri-apps/plugin-fs",
-  "@tauri-apps/api/globalShortcut" => "@tauri-apps/plugin-global-shortcut",
-  "@tauri-apps/api/http" => "@tauri-apps/plugin-http",
-  "@tauri-apps/api/notification" => "@tauri-apps/plugin-notification",
-  "@tauri-apps/api/os" => "@tauri-apps/plugin-os",
-  "@tauri-apps/api/process" => "@tauri-apps/plugin-process",
-  "@tauri-apps/api/shell" => "@tauri-apps/plugin-shell",
-  "@tauri-apps/api/updater" => "@tauri-apps/plugin-updater",
+  "@aphrody/api/cli" => "@aphrody/plugin-cli",
+  "@aphrody/api/clipboard" => "@aphrody/plugin-clipboard-manager",
+  "@aphrody/api/dialog" => "@aphrody/plugin-dialog",
+  "@aphrody/api/fs" => "@aphrody/plugin-fs",
+  "@aphrody/api/globalShortcut" => "@aphrody/plugin-global-shortcut",
+  "@aphrody/api/http" => "@aphrody/plugin-http",
+  "@aphrody/api/notification" => "@aphrody/plugin-notification",
+  "@aphrody/api/os" => "@aphrody/plugin-os",
+  "@aphrody/api/process" => "@aphrody/plugin-process",
+  "@aphrody/api/shell" => "@aphrody/plugin-shell",
+  "@aphrody/api/updater" => "@aphrody/plugin-updater",
   // v1 plugins to v2
-  "tauri-plugin-sql-api" => "@tauri-apps/plugin-sql",
-  "tauri-plugin-store-api" => "@tauri-apps/plugin-store",
-  "tauri-plugin-upload-api" => "@tauri-apps/plugin-upload",
-  "tauri-plugin-fs-extra-api" => "@tauri-apps/plugin-fs",
-  "tauri-plugin-fs-watch-api" => "@tauri-apps/plugin-fs",
-  "tauri-plugin-autostart-api" => "@tauri-apps/plugin-autostart",
-  "tauri-plugin-websocket-api" => "@tauri-apps/plugin-websocket",
-  "tauri-plugin-positioner-api" => "@tauri-apps/plugin-positioner",
-  "tauri-plugin-stronghold-api" => "@tauri-apps/plugin-stronghold",
-  "tauri-plugin-window-state-api" => "@tauri-apps/plugin-window-state",
-  "tauri-plugin-authenticator-api" => "@tauri-apps/plugin-authenticator",
+  "tauri-plugin-sql-api" => "@aphrody/plugin-sql",
+  "tauri-plugin-store-api" => "@aphrody/plugin-store",
+  "tauri-plugin-upload-api" => "@aphrody/plugin-upload",
+  "tauri-plugin-fs-extra-api" => "@aphrody/plugin-fs",
+  "tauri-plugin-fs-watch-api" => "@aphrody/plugin-fs",
+  "tauri-plugin-autostart-api" => "@aphrody/plugin-autostart",
+  "tauri-plugin-websocket-api" => "@aphrody/plugin-websocket",
+  "tauri-plugin-positioner-api" => "@aphrody/plugin-positioner",
+  "tauri-plugin-stronghold-api" => "@aphrody/plugin-stronghold",
+  "tauri-plugin-window-state-api" => "@aphrody/plugin-window-state",
+  "tauri-plugin-authenticator-api" => "@aphrody/plugin-authenticator",
 };
 const JS_EXTENSIONS: &[&str] = &["js", "mjs", "jsx", "ts", "mts", "tsx", "svelte", "vue"];
 
@@ -86,7 +86,7 @@ pub fn migrate(frontend_dir: &Path) -> Result<Vec<String>> {
 
   let pm = PackageManager::from_project(frontend_dir);
 
-  for pkg in ["@tauri-apps/cli", "@tauri-apps/api"] {
+  for pkg in ["@aphrody/cli", "@aphrody/api"] {
     let version = pm
       .current_package_version(pkg, frontend_dir)
       .unwrap_or_default()
@@ -188,8 +188,8 @@ fn migrate_imports<'a>(
         let module = stmt.source.value.as_str();
 
         // convert module to its pluginfied module or renamed one
-        // import { ... } from "@tauri-apps/api/window" -> import { ... } from "@tauri-apps/api/webviewWindow"
-        // import { ... } from "@tauri-apps/api/cli" -> import { ... } from "@tauri-apps/plugin-cli"
+        // import { ... } from "@aphrody/api/window" -> import { ... } from "@aphrody/api/webviewWindow"
+        // import { ... } from "@aphrody/api/cli" -> import { ... } from "@aphrody/plugin-cli"
         if let Some(&new_module) = MODULES_MAP.get(module) {
           // +1 and -1, to skip modifying the import quotes
           magic_js_source
@@ -207,7 +207,7 @@ fn migrate_imports<'a>(
             })?;
 
           // if module was pluginified, add to packages
-          if let Some(plugin_name) = new_module.strip_prefix("@tauri-apps/plugin-") {
+          if let Some(plugin_name) = new_module.strip_prefix("@aphrody/plugin-") {
             new_plugins.push(plugin_name.to_string());
           }
 
@@ -217,8 +217,8 @@ fn migrate_imports<'a>(
           }
         }
 
-        // skip parsing non @tauri-apps/api imports
-        if !module.starts_with("@tauri-apps/api") {
+        // skip parsing non @aphrody/api imports
+        if !module.starts_with("@aphrody/api") {
           continue;
         }
 
@@ -231,29 +231,29 @@ fn migrate_imports<'a>(
             let new_identifier = match specifier.imported.name().as_str() {
               // migrate appWindow from:
               // ```
-              // import { appWindow } from "@tauri-apps/api/window"
+              // import { appWindow } from "@aphrody/api/window"
               // ```
               // to:
               // ```
-              // import { getCurrentWebviewWindow } from "@tauri-apps/api/webviewWindow"
+              // import { getCurrentWebviewWindow } from "@aphrody/api/webviewWindow"
               // const appWindow = getCurrentWebviewWindow()
               // ```
-              "appWindow" if module == "@tauri-apps/api/window" => {
+              "appWindow" if module == "@aphrody/api/window" => {
                 stmts_to_add.push("\nconst appWindow = getCurrentWebviewWindow()");
                 Some("getCurrentWebviewWindow")
               }
 
               // migrate pluginified modules from:
               // ```
-              // import { dialog, cli as superCli } from "@tauri-apps/api"
+              // import { dialog, cli as superCli } from "@aphrody/api"
               // ```
               // to:
               // ```
-              // import * as dialog from "@tauri-apps/plugin-dialog"
-              // import * as superCli from "@tauri-apps/plugin-cli"
+              // import * as dialog from "@aphrody/plugin-dialog"
+              // import * as superCli from "@aphrody/plugin-cli"
               // ```
-              import if PLUGINIFIED_MODULES.contains(&import) && module == "@tauri-apps/api" => {
-                let js_plugin: &str = MODULES_MAP[&format!("@tauri-apps/api/{import}")];
+              import if PLUGINIFIED_MODULES.contains(&import) && module == "@aphrody/api" => {
+                let js_plugin: &str = MODULES_MAP[&format!("@aphrody/api/{import}")];
                 let (_, plugin_name) = js_plugin.split_once("plugin-").unwrap();
 
                 new_plugins.push(plugin_name.to_string());
@@ -267,7 +267,7 @@ fn migrate_imports<'a>(
                 None
               }
 
-              import if module == "@tauri-apps/api" => match RENAMED_MODULES.get(import) {
+              import if module == "@aphrody/api" => match RENAMED_MODULES.get(import) {
                 Some(m) => Some(*m),
                 None => continue,
               },
@@ -278,7 +278,7 @@ fn migrate_imports<'a>(
 
             // if identifier was renamed, it will be Some()
             // and so we convert the import
-            // import { appWindow } from "@tauri-apps/api/window" -> import { getCurrentWebviewWindow } from "@tauri-apps/api/webviewWindow"
+            // import { appWindow } from "@aphrody/api/window" -> import { getCurrentWebviewWindow } from "@aphrody/api/webviewWindow"
             if let Some(new_identifier) = new_identifier {
               magic_js_source
                 .overwrite(
@@ -410,13 +410,13 @@ mod tests {
 <script setup>
   import { useState } from "react";
   import reactLogo from "./assets/react.svg";
-  import { invoke, dialog, cli as superCli } from "@tauri-apps/api";
-  import { appWindow } from "@tauri-apps/api/window";
-  import { convertFileSrc } from "@tauri-apps/api/tauri";
-  import { open } from "@tauri-apps/api/dialog";
-  import { register } from "@tauri-apps/api/globalShortcut";
-  import clipboard from "@tauri-apps/api/clipboard";
-  import * as fs from "@tauri-apps/api/fs";
+  import { invoke, dialog, cli as superCli } from "@aphrody/api";
+  import { appWindow } from "@aphrody/api/window";
+  import { convertFileSrc } from "@aphrody/api/tauri";
+  import { open } from "@aphrody/api/dialog";
+  import { register } from "@aphrody/api/globalShortcut";
+  import clipboard from "@aphrody/api/clipboard";
+  import * as fs from "@aphrody/api/fs";
   import "./App.css";
 </script>
 
@@ -436,16 +436,16 @@ mod tests {
 <script setup>
   import { useState } from "react";
   import reactLogo from "./assets/react.svg";
-  import { invoke,   } from "@tauri-apps/api";
-  import { getCurrentWebviewWindow } from "@tauri-apps/api/webviewWindow";
-  import { convertFileSrc } from "@tauri-apps/api/core";
-  import { open } from "@tauri-apps/plugin-dialog";
-  import { register } from "@tauri-apps/plugin-global-shortcut";
-  import clipboard from "@tauri-apps/plugin-clipboard-manager";
-  import * as fs from "@tauri-apps/plugin-fs";
+  import { invoke,   } from "@aphrody/api";
+  import { getCurrentWebviewWindow } from "@aphrody/api/webviewWindow";
+  import { convertFileSrc } from "@aphrody/api/core";
+  import { open } from "@aphrody/plugin-dialog";
+  import { register } from "@aphrody/plugin-global-shortcut";
+  import clipboard from "@aphrody/plugin-clipboard-manager";
+  import * as fs from "@aphrody/plugin-fs";
   import "./App.css";
-import * as dialog from "@tauri-apps/plugin-dialog"
-import * as superCli from "@tauri-apps/plugin-cli"
+import * as dialog from "@aphrody/plugin-dialog"
+import * as superCli from "@aphrody/plugin-cli"
 const appWindow = getCurrentWebviewWindow()
 </script>
 
@@ -494,13 +494,13 @@ const appWindow = getCurrentWebviewWindow()
 <script>
   import { useState } from "react";
   import reactLogo from "./assets/react.svg";
-  import { invoke, dialog, cli as superCli } from "@tauri-apps/api";
-  import { appWindow } from "@tauri-apps/api/window";
-  import { convertFileSrc } from "@tauri-apps/api/tauri";
-  import { open } from "@tauri-apps/api/dialog";
-  import { register } from "@tauri-apps/api/globalShortcut";
-  import clipboard from "@tauri-apps/api/clipboard";
-  import * as fs from "@tauri-apps/api/fs";
+  import { invoke, dialog, cli as superCli } from "@aphrody/api";
+  import { appWindow } from "@aphrody/api/window";
+  import { convertFileSrc } from "@aphrody/api/tauri";
+  import { open } from "@aphrody/api/dialog";
+  import { register } from "@aphrody/api/globalShortcut";
+  import clipboard from "@aphrody/api/clipboard";
+  import * as fs from "@aphrody/api/fs";
   import "./App.css";
 </script>
 "#;
@@ -512,16 +512,16 @@ const appWindow = getCurrentWebviewWindow()
 <script>
   import { useState } from "react";
   import reactLogo from "./assets/react.svg";
-  import { invoke,   } from "@tauri-apps/api";
-  import { getCurrentWebviewWindow } from "@tauri-apps/api/webviewWindow";
-  import { convertFileSrc } from "@tauri-apps/api/core";
-  import { open } from "@tauri-apps/plugin-dialog";
-  import { register } from "@tauri-apps/plugin-global-shortcut";
-  import clipboard from "@tauri-apps/plugin-clipboard-manager";
-  import * as fs from "@tauri-apps/plugin-fs";
+  import { invoke,   } from "@aphrody/api";
+  import { getCurrentWebviewWindow } from "@aphrody/api/webviewWindow";
+  import { convertFileSrc } from "@aphrody/api/core";
+  import { open } from "@aphrody/plugin-dialog";
+  import { register } from "@aphrody/plugin-global-shortcut";
+  import clipboard from "@aphrody/plugin-clipboard-manager";
+  import * as fs from "@aphrody/plugin-fs";
   import "./App.css";
-import * as dialog from "@tauri-apps/plugin-dialog"
-import * as superCli from "@tauri-apps/plugin-cli"
+import * as dialog from "@aphrody/plugin-dialog"
+import * as superCli from "@aphrody/plugin-cli"
 const appWindow = getCurrentWebviewWindow()
 </script>
 "#;
@@ -559,13 +559,13 @@ const appWindow = getCurrentWebviewWindow()
     let input = r#"
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
-import { invoke, dialog, cli as superCli } from "@tauri-apps/api";
-import { appWindow } from "@tauri-apps/api/window";
-import { convertFileSrc } from "@tauri-apps/api/tauri";
-import { open } from "@tauri-apps/api/dialog";
-import { register } from "@tauri-apps/api/globalShortcut";
-import clipboard from "@tauri-apps/api/clipboard";
-import * as fs from "@tauri-apps/api/fs";
+import { invoke, dialog, cli as superCli } from "@aphrody/api";
+import { appWindow } from "@aphrody/api/window";
+import { convertFileSrc } from "@aphrody/api/tauri";
+import { open } from "@aphrody/api/dialog";
+import { register } from "@aphrody/api/globalShortcut";
+import clipboard from "@aphrody/api/clipboard";
+import * as fs from "@aphrody/api/fs";
 import { Store } from "tauri-plugin-store-api";
 import Database from "tauri-plugin-sql-api";
 import "./App.css";
@@ -630,18 +630,18 @@ export default App;
     let expected = r#"
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
-import { invoke,   } from "@tauri-apps/api";
-import { getCurrentWebviewWindow } from "@tauri-apps/api/webviewWindow";
-import { convertFileSrc } from "@tauri-apps/api/core";
-import { open } from "@tauri-apps/plugin-dialog";
-import { register } from "@tauri-apps/plugin-global-shortcut";
-import clipboard from "@tauri-apps/plugin-clipboard-manager";
-import * as fs from "@tauri-apps/plugin-fs";
-import { Store } from "@tauri-apps/plugin-store";
-import Database from "@tauri-apps/plugin-sql";
+import { invoke,   } from "@aphrody/api";
+import { getCurrentWebviewWindow } from "@aphrody/api/webviewWindow";
+import { convertFileSrc } from "@aphrody/api/core";
+import { open } from "@aphrody/plugin-dialog";
+import { register } from "@aphrody/plugin-global-shortcut";
+import clipboard from "@aphrody/plugin-clipboard-manager";
+import * as fs from "@aphrody/plugin-fs";
+import { Store } from "@aphrody/plugin-store";
+import Database from "@aphrody/plugin-sql";
 import "./App.css";
-import * as dialog from "@tauri-apps/plugin-dialog"
-import * as superCli from "@tauri-apps/plugin-cli"
+import * as dialog from "@aphrody/plugin-dialog"
+import * as superCli from "@aphrody/plugin-cli"
 const appWindow = getCurrentWebviewWindow()
 
 function App() {

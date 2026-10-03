@@ -1,12 +1,12 @@
 <script lang="ts">
-  import { TrayIcon } from '@tauri-apps/api/tray'
+  import { TrayIcon } from '@aphrody/api/tray'
   import MenuBuilder, {
     reorderMenuItems,
     type Item,
     type MenuItemClickDetail,
     type MenuItems
   } from '../components/MenuBuilder.svelte'
-  import { Menu } from '@tauri-apps/api/menu'
+  import { Menu } from '@aphrody/api/menu'
   import type { ViewProps } from '../App.svelte'
   import { onDestroy } from 'svelte'
 

@@ -199,10 +199,10 @@ jobs:
           repository: tauri-apps/tauri-docs
           event-type: update-docs
 
-      - name: Trigger `@tauri-apps/cli` publishing workflow
+      - name: Trigger `@aphrody/cli` publishing workflow
         if: |
           steps.covector.outputs.successfulPublish == 'true' &&
-          contains(steps.covector.outputs.packagesPublished, '@tauri-apps/cli')
+          contains(steps.covector.outputs.packagesPublished, '@aphrody/cli')
         run: gh workflow run 31554138 -r v3 -f releaseId=${{ steps.covector.outputs['-tauri-apps-cli-releaseId'] }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

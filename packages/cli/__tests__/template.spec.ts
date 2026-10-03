@@ -22,7 +22,7 @@ if (!process.env.CI) {
   })
 }
 
-describe('[CLI] @tauri-apps/cli template', () => {
+describe('[CLI] @aphrody/cli template', () => {
   it('init a project and builds it', { timeout: 15 * 60 * 1000 }, async () => {
     const cwd = process.cwd()
     const fixturePath = resolve(__dirname, './fixtures/empty')

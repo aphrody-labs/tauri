@@ -7,7 +7,7 @@
     PredefinedMenuItem,
     Submenu,
     type PredefinedMenuItemOptions
-  } from '@tauri-apps/api/menu'
+  } from '@aphrody/api/menu'
 
   export type MenuOptions = {
     id: number

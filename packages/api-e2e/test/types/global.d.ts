@@ -3,10 +3,10 @@
 // SPDX-License-Identifier: MIT
 
 // The examples/api app is built with `withGlobalTauri: true`, so the whole
-// `@tauri-apps/api` surface is available on `window.__TAURI__` inside the webview.
+// `@aphrody/api` surface is available on `window.__TAURI__` inside the webview.
 // This mirrors that for the functions we serialize and run in the page.
 
-import type * as TauriApi from '@tauri-apps/api'
+import type * as TauriApi from '@aphrody/api'
 
 declare global {
   interface Window {

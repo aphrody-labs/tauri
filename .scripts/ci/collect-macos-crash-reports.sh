@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 # SPDX-License-Identifier: MIT
 
-# Collects and prints macOS crash reports after a failed `@tauri-apps/api` e2e run.
+# Collects and prints macOS crash reports after a failed `@aphrody/api` e2e run.
 #
 # The CrabNebula Webdriver proxies every command to a server running *inside* the app
 # process, so when the app dies the suite only ever reports `connection refused` — the

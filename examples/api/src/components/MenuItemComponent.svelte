@@ -1,5 +1,5 @@
 <script module lang="ts">
-  import type { PredefinedMenuItemOptions } from '@tauri-apps/api/menu'
+  import type { PredefinedMenuItemOptions } from '@aphrody/api/menu'
 
   type PredefinedItem = PredefinedMenuItemOptions['item']
   export type MenuItemComponentKind =

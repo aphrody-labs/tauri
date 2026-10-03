@@ -1,6 +1,6 @@
 # API example
 
-This example demonstrates Tauri's API capabilities using the `@tauri-apps/api` package. It's used as the main validation app, serving as the testbed of our development process.
+This example demonstrates Tauri's API capabilities using the `@aphrody/api` package. It's used as the main validation app, serving as the testbed of our development process.
 In the future, this app will be used on Tauri's integration tests.
 
 ![App screenshot](./screenshot.png?raw=true)

@@ -88,9 +88,9 @@ The code for the bundler is located in [crates/tauri-bundler](https://github.com
 Running `cargo install --path .` in the Rust CLI directory will allow you to run `cargo tauri build` and `cargo tauri dev` anywhere, using the updated copy of the bundler and cli. You will have to run this command each time you make a change in either package.
 You can use `cargo install --path . --debug` to speed up test builds.
 
-### Developing The Node.js CLI (`@tauri-apps/cli`)
+### Developing The Node.js CLI (`@aphrody/cli`)
 
-[`@tauri-apps/cli`](https://github.com/tauri-apps/tauri/tree/dev/packages/cli) is a small wrapper around `tauri-cli` so most changes should be happen in the Rust CLI (see above).
+[`@aphrody/cli`](https://github.com/tauri-apps/tauri/tree/dev/packages/cli) is a small wrapper around `tauri-cli` so most changes should be happen in the Rust CLI (see above).
 
 #### Building the documentation locally
 

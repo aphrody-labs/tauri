@@ -1,5 +1,5 @@
 {
-  "name": "@tauri-apps/cli-darwin-arm64",
+  "name": "@aphrody/cli-darwin-arm64",
   "version": "0.0.0",
   "cpu": [
     "arm64"

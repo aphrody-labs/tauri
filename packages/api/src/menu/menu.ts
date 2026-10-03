@@ -56,7 +56,7 @@ export class Menu extends MenuItemBase {
    *
    * @example
    * ```typescript
-   * import { Menu, Submenu } from '@tauri-apps/api/menu';
+   * import { Menu, Submenu } from '@aphrody/api/menu';
    *
    * const menu = await Menu.new({
    *   items: [
@@ -94,7 +94,7 @@ export class Menu extends MenuItemBase {
    *
    * @example
    * ```typescript
-   * import { Menu, Submenu } from '@tauri-apps/api/menu';
+   * import { Menu, Submenu } from '@aphrody/api/menu';
    *
    * const menu = await Menu.default();
    * await menu.append(await Submenu.new({ text: 'Tools', items: [{ id: 'fmt', text: 'Format' }] }));
@@ -264,8 +264,8 @@ export class Menu extends MenuItemBase {
    *
    * @example
    * ```typescript
-   * import { Menu } from '@tauri-apps/api/menu';
-   * import { LogicalPosition } from '@tauri-apps/api/dpi';
+   * import { Menu } from '@aphrody/api/menu';
+   * import { LogicalPosition } from '@aphrody/api/dpi';
    *
    * const menu = await Menu.new({
    *   items: [{ id: 'copy', text: 'Copy', action: () => console.log('copy') }]
@@ -305,7 +305,7 @@ export class Menu extends MenuItemBase {
    *
    * @example
    * ```typescript
-   * import { Menu } from '@tauri-apps/api/menu';
+   * import { Menu } from '@aphrody/api/menu';
    *
    * const menu = await Menu.default();
    * const previous = await menu.setAsAppMenu();
@@ -330,8 +330,8 @@ export class Menu extends MenuItemBase {
    *
    * @example
    * ```typescript
-   * import { Menu } from '@tauri-apps/api/menu';
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { Menu } from '@aphrody/api/menu';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    *
    * const menu = await Menu.default();
    * await menu.setAsWindowMenu(getCurrentWindow());

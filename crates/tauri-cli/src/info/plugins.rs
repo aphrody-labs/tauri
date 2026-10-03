@@ -55,11 +55,11 @@ pub fn installed_tauri_packages(
         .map(|plugin_name| format!("tauri-plugin-{plugin_name}")),
     )
     .collect();
-  let npm_names: Vec<String> = iter::once("@tauri-apps/api".to_owned())
+  let npm_names: Vec<String> = iter::once("@aphrody/api".to_owned())
     .chain(
       known_plugins
         .keys()
-        .map(|plugin_name| format!("@tauri-apps/plugin-{plugin_name}")),
+        .map(|plugin_name| format!("@aphrody/plugin-{plugin_name}")),
     )
     .collect();
 
@@ -131,7 +131,7 @@ pub fn items(
         continue;
       };
 
-      let package = format!("@tauri-apps/plugin-{name}");
+      let package = format!("@aphrody/plugin-{name}");
 
       let item =
         packages_nodejs::nodejs_section_item(package, None, frontend_dir.clone(), package_manager);

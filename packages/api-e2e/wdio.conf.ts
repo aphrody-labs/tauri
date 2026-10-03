@@ -76,7 +76,7 @@ export const config: WebdriverIO.Config = {
   // drive whatever binary happens to sit at the output path (or time out on a
   // missing one) instead of failing on the actual cause.
   onPrepare: async () => {
-    // The example resolves `@tauri-apps/api` from `packages/api/dist`, and its
+    // The example resolves `@aphrody/api` from `packages/api/dist`, and its
     // frontend build (vite) needs it too. Fail early with a clear message.
     if (
       !fs.existsSync(path.join(repoRoot, 'packages', 'api', 'dist', 'index.js'))

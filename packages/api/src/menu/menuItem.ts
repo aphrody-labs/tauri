@@ -51,7 +51,7 @@ export interface MenuItemOptions {
    *
    * @example
    * ```typescript
-   * import { MenuItem } from '@tauri-apps/api/menu';
+   * import { MenuItem } from '@aphrody/api/menu';
    *
    * await MenuItem.new({ text: 'Find', accelerator: 'CmdOrCtrl+F' });
    * await MenuItem.new({ text: 'Command palette', accelerator: 'CmdOrCtrl+Shift+P' });

@@ -10,7 +10,7 @@
     "tauri": "node ../../packages/cli/tauri.js"
   },
   "dependencies": {
-    "@tauri-apps/api": "../../packages/api/dist"
+    "@aphrody/api": "../../packages/api/dist"
   },
   "devDependencies": {
     "@iconify-json/codicon": "^1.2.49",

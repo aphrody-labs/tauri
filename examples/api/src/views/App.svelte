@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { show, hide, setDockVisibility } from '@tauri-apps/api/app'
+  import { show, hide, setDockVisibility } from '@aphrody/api/app'
   import type { ViewProps } from '../App.svelte'
 
   let { onMessage }: ViewProps = $props()

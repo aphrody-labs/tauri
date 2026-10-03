@@ -1,5 +1,5 @@
 {
-  "name": "@tauri-apps/cli-linux-riscv64-gnu",
+  "name": "@aphrody/cli-linux-riscv64-gnu",
   "version": "0.0.0",
   "cpu": [
     "riscv64"

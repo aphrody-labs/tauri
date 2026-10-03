@@ -8,7 +8,7 @@
  * This module exposes all other modules as an object where the key is the module name, and the value is the module exports.
  * @example
  * ```typescript
- * import { event, window, path } from '@tauri-apps/api'
+ * import { event, window, path } from '@aphrody/api'
  * ```
  *
  * ### Vanilla JS API

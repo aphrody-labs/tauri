@@ -158,7 +158,7 @@ enum BaseDirectory {
  * unless overridden with the [`app > appDirectoriesOverride`](https://v2.tauri.app/reference/config/#appdirectoriesoverride) config.
  * @example
  * ```typescript
- * import { appConfigDir } from '@tauri-apps/api/path';
+ * import { appConfigDir } from '@aphrody/api/path';
  * const appConfigDirPath = await appConfigDir();
  * ```
  *
@@ -176,7 +176,7 @@ async function appConfigDir(): Promise<string> {
  * unless overridden with the [`app > appDirectoriesOverride`](https://v2.tauri.app/reference/config/#appdirectoriesoverride) config.
  * @example
  * ```typescript
- * import { appDataDir } from '@tauri-apps/api/path';
+ * import { appDataDir } from '@aphrody/api/path';
  * const appDataDirPath = await appDataDir();
  * ```
  *
@@ -194,7 +194,7 @@ async function appDataDir(): Promise<string> {
  * unless overridden with the [`app > appDirectoriesOverride`](https://v2.tauri.app/reference/config/#appdirectoriesoverride) config.
  * @example
  * ```typescript
- * import { appLocalDataDir } from '@tauri-apps/api/path';
+ * import { appLocalDataDir } from '@aphrody/api/path';
  * const appLocalDataDirPath = await appLocalDataDir();
  * ```
  *
@@ -212,7 +212,7 @@ async function appLocalDataDir(): Promise<string> {
  * unless overridden with the [`app > appDirectoriesOverride`](https://v2.tauri.app/reference/config/#appdirectoriesoverride) config (a single root override resolves to `${root}/caches`).
  * @example
  * ```typescript
- * import { appCacheDir } from '@tauri-apps/api/path';
+ * import { appCacheDir } from '@aphrody/api/path';
  * const appCacheDirPath = await appCacheDir();
  * ```
  *
@@ -234,7 +234,7 @@ async function appCacheDir(): Promise<string> {
  * - **Windows:** Resolves to `{FOLDERID_Music}`.
  * @example
  * ```typescript
- * import { audioDir } from '@tauri-apps/api/path';
+ * import { audioDir } from '@aphrody/api/path';
  * const audioDirPath = await audioDir();
  * ```
  *
@@ -256,7 +256,7 @@ async function audioDir(): Promise<string> {
  * - **Windows:** Resolves to `{FOLDERID_LocalAppData}`.
  * @example
  * ```typescript
- * import { cacheDir } from '@tauri-apps/api/path';
+ * import { cacheDir } from '@aphrody/api/path';
  * const cacheDirPath = await cacheDir();
  * ```
  *
@@ -278,7 +278,7 @@ async function cacheDir(): Promise<string> {
  * - **Windows:** Resolves to `{FOLDERID_RoamingAppData}`.
  * @example
  * ```typescript
- * import { configDir } from '@tauri-apps/api/path';
+ * import { configDir } from '@aphrody/api/path';
  * const configDirPath = await configDir();
  * ```
  *
@@ -300,7 +300,7 @@ async function configDir(): Promise<string> {
  * - **Windows:** Resolves to `{FOLDERID_RoamingAppData}`.
  * @example
  * ```typescript
- * import { dataDir } from '@tauri-apps/api/path';
+ * import { dataDir } from '@aphrody/api/path';
  * const dataDirPath = await dataDir();
  * ```
  *
@@ -325,7 +325,7 @@ async function dataDir(): Promise<string> {
  * - **Windows:** Resolves to `{FOLDERID_Desktop}`.
  * @example
  * ```typescript
- * import { desktopDir } from '@tauri-apps/api/path';
+ * import { desktopDir } from '@aphrody/api/path';
  * const desktopPath = await desktopDir();
  * ```
  *
@@ -341,7 +341,7 @@ async function desktopDir(): Promise<string> {
  * Returns the path to the user's document directory.
  * @example
  * ```typescript
- * import { documentDir } from '@tauri-apps/api/path';
+ * import { documentDir } from '@aphrody/api/path';
  * const documentDirPath = await documentDir();
  * ```
  *
@@ -369,7 +369,7 @@ async function documentDir(): Promise<string> {
  * - **Windows**: Resolves to `{FOLDERID_Downloads}`.
  * @example
  * ```typescript
- * import { downloadDir } from '@tauri-apps/api/path';
+ * import { downloadDir } from '@aphrody/api/path';
  * const downloadDirPath = await downloadDir();
  * ```
  *
@@ -394,7 +394,7 @@ async function downloadDir(): Promise<string> {
  * - **Windows:** Not supported.
  * @example
  * ```typescript
- * import { executableDir } from '@tauri-apps/api/path';
+ * import { executableDir } from '@aphrody/api/path';
  * const executableDirPath = await executableDir();
  * ```
  *
@@ -419,7 +419,7 @@ async function executableDir(): Promise<string> {
  * - **Windows:** Not supported.
  * @example
  * ```typescript
- * import { fontDir } from '@tauri-apps/api/path';
+ * import { fontDir } from '@aphrody/api/path';
  * const fontDirPath = await fontDir();
  * ```
  *
@@ -441,7 +441,7 @@ async function fontDir(): Promise<string> {
  * - **Windows:** Resolves to `{FOLDERID_Profile}`.
  * @example
  * ```typescript
- * import { homeDir } from '@tauri-apps/api/path';
+ * import { homeDir } from '@aphrody/api/path';
  * const homeDirPath = await homeDir();
  * ```
  *
@@ -463,7 +463,7 @@ async function homeDir(): Promise<string> {
  * - **Windows:** Resolves to `{FOLDERID_LocalAppData}`.
  * @example
  * ```typescript
- * import { localDataDir } from '@tauri-apps/api/path';
+ * import { localDataDir } from '@aphrody/api/path';
  * const localDataDirPath = await localDataDir();
  * ```
  *
@@ -485,7 +485,7 @@ async function localDataDir(): Promise<string> {
  * - **Windows:** Resolves to `{FOLDERID_Pictures}`.
  * @example
  * ```typescript
- * import { pictureDir } from '@tauri-apps/api/path';
+ * import { pictureDir } from '@aphrody/api/path';
  * const pictureDirPath = await pictureDir();
  * ```
  *
@@ -507,7 +507,7 @@ async function pictureDir(): Promise<string> {
  * - **Windows:** Resolves to `{FOLDERID_Public}`.
  * @example
  * ```typescript
- * import { publicDir } from '@tauri-apps/api/path';
+ * import { publicDir } from '@aphrody/api/path';
  * const publicDirPath = await publicDir();
  * ```
  *
@@ -540,7 +540,7 @@ async function publicDir(): Promise<string> {
  *
  * @example
  * ```typescript
- * import { resourceDir } from '@tauri-apps/api/path';
+ * import { resourceDir } from '@aphrody/api/path';
  * const resourceDirPath = await resourceDir();
  * ```
  *
@@ -556,7 +556,7 @@ async function resourceDir(): Promise<string> {
  * Resolve the path to a resource file.
  * @example
  * ```typescript
- * import { resolveResource } from '@tauri-apps/api/path';
+ * import { resolveResource } from '@aphrody/api/path';
  * const resourcePath = await resolveResource('script.sh');
  * ```
  *
@@ -586,7 +586,7 @@ async function resolveResource(resourcePath: string): Promise<string> {
  * - **Windows:** Not supported.
  * @example
  * ```typescript
- * import { runtimeDir } from '@tauri-apps/api/path';
+ * import { runtimeDir } from '@aphrody/api/path';
  * const runtimeDirPath = await runtimeDir();
  * ```
  *
@@ -611,7 +611,7 @@ async function runtimeDir(): Promise<string> {
  * - **Windows:** Resolves to `{FOLDERID_Templates}`.
  * @example
  * ```typescript
- * import { templateDir } from '@tauri-apps/api/path';
+ * import { templateDir } from '@aphrody/api/path';
  * const templateDirPath = await templateDir();
  * ```
  *
@@ -637,7 +637,7 @@ async function templateDir(): Promise<string> {
  * - **iOS:** Resolves inside the app sandbox.
  * @example
  * ```typescript
- * import { videoDir } from '@tauri-apps/api/path';
+ * import { videoDir } from '@aphrody/api/path';
  * const videoDirPath = await videoDir();
  * ```
  *
@@ -667,7 +667,7 @@ async function videoDir(): Promise<string> {
  * All of them can be overridden with the [`app > appDirectoriesOverride`](https://v2.tauri.app/reference/config/#appdirectoriesoverride) config (a single root override resolves to `${root}/logs`).
  * @example
  * ```typescript
- * import { appLogDir } from '@tauri-apps/api/path';
+ * import { appLogDir } from '@aphrody/api/path';
  * const appLogDirPath = await appLogDir();
  * ```
  *
@@ -683,7 +683,7 @@ async function appLogDir(): Promise<string> {
  * Returns a temporary directory.
  * @example
  * ```typescript
- * import { tempDir } from '@tauri-apps/api/path';
+ * import { tempDir } from '@aphrody/api/path';
  * const temp = await tempDir();
  * ```
  *
@@ -720,7 +720,7 @@ function delimiter(): string {
  * Resolves a sequence of `paths` or `path` segments into an absolute path.
  * @example
  * ```typescript
- * import { resolve, appDataDir } from '@tauri-apps/api/path';
+ * import { resolve, appDataDir } from '@aphrody/api/path';
  * const appDataDirPath = await appDataDir();
  * const path = await resolve(appDataDirPath, '..', 'users', 'tauri', 'avatar.png');
  * ```
@@ -735,7 +735,7 @@ async function resolve(...paths: string[]): Promise<string> {
  * Normalizes the given `path`, resolving `'..'` and `'.'` segments and resolve symbolic links.
  * @example
  * ```typescript
- * import { normalize, appDataDir } from '@tauri-apps/api/path';
+ * import { normalize, appDataDir } from '@aphrody/api/path';
  * const appDataDirPath = await appDataDir();
  * const path = await normalize(`${appDataDirPath}/../users/tauri/avatar.png`);
  * ```
@@ -750,7 +750,7 @@ async function normalize(path: string): Promise<string> {
  *  Joins all given `path` segments together using the platform-specific separator as a delimiter, then normalizes the resulting path.
  * @example
  * ```typescript
- * import { join, appDataDir } from '@tauri-apps/api/path';
+ * import { join, appDataDir } from '@aphrody/api/path';
  * const appDataDirPath = await appDataDir();
  * const path = await join(appDataDirPath, 'users', 'tauri', 'avatar.png');
  * ```
@@ -765,7 +765,7 @@ async function join(...paths: string[]): Promise<string> {
  * Returns the parent directory of a given `path`. Trailing directory separators are ignored.
  * @example
  * ```typescript
- * import { dirname } from '@tauri-apps/api/path';
+ * import { dirname } from '@aphrody/api/path';
  * const dir = await dirname('/path/to/somedir/');
  * assert(dir === '/path/to');
  * ```
@@ -780,7 +780,7 @@ async function dirname(path: string): Promise<string> {
  * Returns the extension of the `path`.
  * @example
  * ```typescript
- * import { extname } from '@tauri-apps/api/path';
+ * import { extname } from '@aphrody/api/path';
  * const ext = await extname('/path/to/file.html');
  * assert(ext === 'html');
  * ```
@@ -795,7 +795,7 @@ async function extname(path: string): Promise<string> {
  * Returns the last portion of a `path`. Trailing directory separators are ignored.
  * @example
  * ```typescript
- * import { basename } from '@tauri-apps/api/path';
+ * import { basename } from '@aphrody/api/path';
  * const base = await basename('path/to/app.conf');
  * assert(base === 'app.conf');
  * ```
@@ -811,7 +811,7 @@ async function basename(path: string, ext?: string): Promise<string> {
  * Returns whether the path is absolute or not.
  * @example
  * ```typescript
- * import { isAbsolute } from '@tauri-apps/api/path';
+ * import { isAbsolute } from '@aphrody/api/path';
  * assert(await isAbsolute('/home/tauri'));
  * ```
  *

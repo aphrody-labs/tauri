@@ -1,15 +1,15 @@
 <script lang="ts">
-  import { Menu, Submenu, NativeIcon } from '@tauri-apps/api/menu'
+  import { Menu, Submenu, NativeIcon } from '@aphrody/api/menu'
   import MenuBuilder, {
     reorderMenuItems,
     type Item,
     type MenuItemClickDetail,
     type MenuItems
   } from '../components/MenuBuilder.svelte'
-  import { defaultWindowIcon } from '@tauri-apps/api/app'
+  import { defaultWindowIcon } from '@aphrody/api/app'
   import type { ViewProps } from '../App.svelte'
   import { onDestroy } from 'svelte'
-  import type { Image } from '@tauri-apps/api/image'
+  import type { Image } from '@aphrody/api/image'
 
   let { onMessage }: ViewProps = $props()
   let items = $state<Item[]>([])

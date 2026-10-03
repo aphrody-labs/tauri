@@ -7,9 +7,9 @@
 <script lang="ts">
   import { onMount, tick } from 'svelte'
   import { writable } from 'svelte/store'
-  import { invoke } from '@tauri-apps/api/core'
-  import { getCurrentWebviewWindow } from '@tauri-apps/api/webviewWindow'
-  import { setTheme } from '@tauri-apps/api/app'
+  import { invoke } from '@aphrody/api/core'
+  import { getCurrentWebviewWindow } from '@aphrody/api/webviewWindow'
+  import { setTheme } from '@aphrody/api/app'
 
   import Welcome from './views/Welcome.svelte'
   import Communication from './views/Communication.svelte'
@@ -18,7 +18,7 @@
   import App from './views/App.svelte'
   import Menu from './views/Menu.svelte'
   import Tray from './views/Tray.svelte'
-  import type { Theme } from '@tauri-apps/api/window'
+  import type { Theme } from '@aphrody/api/window'
   import { MediaQuery } from 'svelte/reactivity'
 
   document.addEventListener('keydown', (event) => {

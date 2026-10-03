@@ -1,6 +1,6 @@
-# `@tauri-apps/api` end-to-end tests
+# `@aphrody/api` end-to-end tests
 
-WebdriverIO suite that exercises every [`@tauri-apps/api`](../api) module against a
+WebdriverIO suite that exercises every [`@aphrody/api`](../api) module against a
 **real** Tauri app — the [`examples/api`](../../examples/api) validation app — rather than
 a mocked backend, on desktop (Linux, macOS, Windows) and mobile (Android, iOS). Each module
 has its own spec file, shared by every platform, and adding coverage for a new API is
@@ -58,7 +58,7 @@ normally just dropping in one more spec.
 ```sh
 # from the repo root
 pnpm install
-pnpm build:api    # examples/api resolves @tauri-apps/api from packages/api/dist
+pnpm build:api    # examples/api resolves @aphrody/api from packages/api/dist
 pnpm build:cli    # examples/api's `tauri` script uses the local native CLI
 ```
 

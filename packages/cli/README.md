@@ -1,4 +1,4 @@
-# @tauri-apps/cli
+# @aphrody/cli
 
  <img align="right" src="https://github.com/tauri-apps/tauri/raw/dev/.github/icon.png" height="128" width="128">
 
@@ -13,7 +13,7 @@
 
 | Component       | Version                                               |
 | --------------- | ----------------------------------------------------- |
-| @tauri-apps/cli | ![](https://img.shields.io/npm/v/@tauri-apps/cli.svg) |
+| @aphrody/cli | ![](https://img.shields.io/npm/v/@aphrody/cli.svg) |
 
 ## About Tauri
 
@@ -32,9 +32,9 @@ To learn more about the details of how all of these pieces fit together, please 
 The preferred method is to install this module locally as a development dependency:
 
 ```
-$ pnpm add -D @tauri-apps/cli
-$ yarn add -D @tauri-apps/cli
-$ npm add -D @tauri-apps/cli
+$ pnpm add -D @aphrody/cli
+$ yarn add -D @aphrody/cli
+$ npm add -D @aphrody/cli
 ```
 
 ## Semver

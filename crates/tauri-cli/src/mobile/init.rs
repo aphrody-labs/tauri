@@ -83,7 +83,7 @@ fn exec(
           if var_os("PNPM_PACKAGE_NAME").is_some() {
             return ("pnpm".into(), build_args);
           } else if is_pnpm_dlx() {
-            return ("pnpm".into(), vec!["dlx", "@tauri-apps/cli"]);
+            return ("pnpm".into(), vec!["dlx", "@aphrody/cli"]);
           } else if is_pnpm_run() {
             return ("pnpm".into(), build_args);
           } else if let Some(npm_execpath) = var_os("npm_execpath") {

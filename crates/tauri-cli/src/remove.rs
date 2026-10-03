@@ -49,7 +49,7 @@ pub fn command(options: Options) -> Result<()> {
     // `tauri add` only installs the JS bindings of known plugins; for community plugins, only
     // remove the package older CLI versions installed, and only if the project actually uses it
     let npm_name = if is_known {
-      format!("@tauri-apps/plugin-{plugin}")
+      format!("@aphrody/plugin-{plugin}")
     } else {
       format!("tauri-plugin-{plugin}-api")
     };
@@ -104,12 +104,12 @@ mod tests {
   #[test]
   fn finds_dependency_in_any_section() {
     let package_json = json!({
-      "dependencies": { "@tauri-apps/plugin-fs": "~2" },
+      "dependencies": { "@aphrody/plugin-fs": "~2" },
       "devDependencies": { "tauri-plugin-foo-api": "^1" },
     });
-    assert!(lists_dependency(&package_json, "@tauri-apps/plugin-fs"));
+    assert!(lists_dependency(&package_json, "@aphrody/plugin-fs"));
     assert!(lists_dependency(&package_json, "tauri-plugin-foo-api"));
-    assert!(!lists_dependency(&package_json, "@tauri-apps/plugin-os"));
-    assert!(!lists_dependency(&json!({}), "@tauri-apps/plugin-fs"));
+    assert!(!lists_dependency(&package_json, "@aphrody/plugin-os"));
+    assert!(!lists_dependency(&json!({}), "@aphrody/plugin-fs"));
   }
 }

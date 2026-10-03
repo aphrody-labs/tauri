@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 // SPDX-License-Identifier: MIT
 
-// The example is built with `withGlobalTauri: true`, so the `@tauri-apps/api`
+// The example is built with `withGlobalTauri: true`, so the `@aphrody/api`
 // surface is on `window.__TAURI__` inside every page. Only the part the specs
 // evaluate in the page is typed here.
 

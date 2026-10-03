@@ -11,7 +11,7 @@
  * classes in this module make the unit explicit and convert between the two.
  *
  * ```typescript
- * import { getCurrentWindow } from '@tauri-apps/api/window';
+ * import { getCurrentWindow } from '@aphrody/api/window';
  *
  * const appWindow = getCurrentWindow();
  * const size = await appWindow.innerSize(); // PhysicalSize
@@ -70,8 +70,8 @@ class LogicalSize {
    * Converts the logical size to a physical one.
    * @example
    * ```typescript
-   * import { LogicalSize } from '@tauri-apps/api/dpi';
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { LogicalSize } from '@aphrody/api/dpi';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    *
    * const appWindow = getCurrentWindow();
    * const factor = await appWindow.scaleFactor();
@@ -141,7 +141,7 @@ class PhysicalSize {
    * Converts the physical size to a logical one.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * const appWindow = getCurrentWindow();
    * const factor = await appWindow.scaleFactor();
    * const size = await appWindow.innerSize(); // PhysicalSize
@@ -176,8 +176,8 @@ class PhysicalSize {
  *
  * So instead of
  * ```typescript
- * import { invoke } from '@tauri-apps/api/core';
- * import { LogicalSize, PhysicalSize } from '@tauri-apps/api/dpi';
+ * import { invoke } from '@aphrody/api/core';
+ * import { LogicalSize, PhysicalSize } from '@aphrody/api/dpi';
  *
  * const size: LogicalSize | PhysicalSize = someFunction(); // where someFunction returns either LogicalSize or PhysicalSize
  * const validSize = size instanceof LogicalSize
@@ -188,8 +188,8 @@ class PhysicalSize {
  *
  * You can just use {@linkcode Size}
  * ```typescript
- * import { invoke } from '@tauri-apps/api/core';
- * import { LogicalSize, PhysicalSize, Size } from '@tauri-apps/api/dpi';
+ * import { invoke } from '@aphrody/api/core';
+ * import { LogicalSize, PhysicalSize, Size } from '@aphrody/api/dpi';
  *
  * const size: LogicalSize | PhysicalSize = someFunction(); // where someFunction returns either LogicalSize or PhysicalSize
  * const validSize = new Size(size);
@@ -288,8 +288,8 @@ class LogicalPosition {
    * Converts the logical position to a physical one.
    * @example
    * ```typescript
-   * import { LogicalPosition } from '@tauri-apps/api/dpi';
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { LogicalPosition } from '@aphrody/api/dpi';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    *
    * const appWindow = getCurrentWindow();
    * const factor = await appWindow.scaleFactor();
@@ -355,8 +355,8 @@ class PhysicalPosition {
    * Converts the physical position to a logical one.
    * @example
    * ```typescript
-   * import { PhysicalPosition } from '@tauri-apps/api/dpi';
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { PhysicalPosition } from '@aphrody/api/dpi';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    *
    * const appWindow = getCurrentWindow();
    * const factor = await appWindow.scaleFactor();
@@ -392,8 +392,8 @@ class PhysicalPosition {
  *
  * So instead of
  * ```typescript
- * import { invoke } from '@tauri-apps/api/core';
- * import { LogicalPosition, PhysicalPosition } from '@tauri-apps/api/dpi';
+ * import { invoke } from '@aphrody/api/core';
+ * import { LogicalPosition, PhysicalPosition } from '@aphrody/api/dpi';
  *
  * const position: LogicalPosition | PhysicalPosition = someFunction(); // where someFunction returns either LogicalPosition or PhysicalPosition
  * const validPosition = position instanceof LogicalPosition
@@ -404,8 +404,8 @@ class PhysicalPosition {
  *
  * You can just use {@linkcode Position}
  * ```typescript
- * import { invoke } from '@tauri-apps/api/core';
- * import { LogicalPosition, PhysicalPosition, Position } from '@tauri-apps/api/dpi';
+ * import { invoke } from '@aphrody/api/core';
+ * import { LogicalPosition, PhysicalPosition, Position } from '@aphrody/api/dpi';
  *
  * const position: LogicalPosition | PhysicalPosition = someFunction(); // where someFunction returns either LogicalPosition or PhysicalPosition
  * const validPosition = new Position(position);

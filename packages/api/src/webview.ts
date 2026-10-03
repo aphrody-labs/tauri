@@ -9,7 +9,7 @@
  *
  * Events can be listened to using {@link Webview.listen}:
  * ```typescript
- * import { getCurrentWebview } from "@tauri-apps/api/webview";
+ * import { getCurrentWebview } from "@aphrody/api/webview";
  * getCurrentWebview().listen("my-webview-event", ({ event, payload }) => { });
  * ```
  *
@@ -156,8 +156,8 @@ export type WebviewLabel = string
  *
  * @example
  * ```typescript
- * import { Window } from "@tauri-apps/api/window"
- * import { Webview } from "@tauri-apps/api/webview"
+ * import { Window } from "@aphrody/api/window"
+ * import { Webview } from "@aphrody/api/webview"
  *
  * const appWindow = new Window('uniqueLabel');
  *
@@ -217,8 +217,8 @@ class Webview {
    * Creates a new Webview.
    * @example
    * ```typescript
-   * import { Window } from '@tauri-apps/api/window'
-   * import { Webview } from '@tauri-apps/api/webview'
+   * import { Window } from '@aphrody/api/window'
+   * import { Webview } from '@aphrody/api/webview'
    * const appWindow = new Window('my-label')
    *
    * appWindow.once('tauri://created', async function() {
@@ -276,7 +276,7 @@ class Webview {
    * Gets the Webview for the webview associated with the given label.
    * @example
    * ```typescript
-   * import { Webview } from '@tauri-apps/api/webview';
+   * import { Webview } from '@aphrody/api/webview';
    * const mainWebview = Webview.getByLabel('main');
    * ```
    *
@@ -306,7 +306,7 @@ class Webview {
    *
    * @example
    * ```typescript
-   * import { getCurrentWebview } from '@tauri-apps/api/webview';
+   * import { getCurrentWebview } from '@aphrody/api/webview';
    * const unlisten = await getCurrentWebview().listen<string>('state-changed', (event) => {
    *   console.log(`Got error: ${payload}`);
    * });
@@ -345,7 +345,7 @@ class Webview {
    *
    * @example
    * ```typescript
-   * import { getCurrentWebview } from '@tauri-apps/api/webview';
+   * import { getCurrentWebview } from '@aphrody/api/webview';
    * const unlisten = await getCurrentWebview().once<null>('initialized', (event) => {
    *   console.log(`Webview initialized!`);
    * });
@@ -383,7 +383,7 @@ class Webview {
    *
    * @example
    * ```typescript
-   * import { getCurrentWebview } from '@tauri-apps/api/webview';
+   * import { getCurrentWebview } from '@aphrody/api/webview';
    * await getCurrentWebview().emit('webview-loaded', { loggedIn: true, token: 'authToken' });
    * ```
    *
@@ -410,7 +410,7 @@ class Webview {
    *
    * @example
    * ```typescript
-   * import { getCurrentWebview } from '@tauri-apps/api/webview';
+   * import { getCurrentWebview } from '@aphrody/api/webview';
    * await getCurrentWebview().emitTo('main', 'webview-loaded', { loggedIn: true, token: 'authToken' });
    * ```
    *
@@ -457,7 +457,7 @@ class Webview {
    * The position of the top-left hand corner of the webview's client area relative to the top-left hand corner of the desktop.
    * @example
    * ```typescript
-   * import { getCurrentWebview } from '@tauri-apps/api/webview';
+   * import { getCurrentWebview } from '@aphrody/api/webview';
    * const position = await getCurrentWebview().position();
    * ```
    *
@@ -477,7 +477,7 @@ class Webview {
    * The client area is the content of the webview, excluding the title bar and borders.
    * @example
    * ```typescript
-   * import { getCurrentWebview } from '@tauri-apps/api/webview';
+   * import { getCurrentWebview } from '@aphrody/api/webview';
    * const size = await getCurrentWebview().size();
    * ```
    *
@@ -501,7 +501,7 @@ class Webview {
    * Closes the webview.
    * @example
    * ```typescript
-   * import { getCurrentWebview } from '@tauri-apps/api/webview';
+   * import { getCurrentWebview } from '@aphrody/api/webview';
    * await getCurrentWebview().close();
    * ```
    *
@@ -520,8 +520,8 @@ class Webview {
    * Resizes the webview.
    * @example
    * ```typescript
-   * import { getCurrentWebview } from '@tauri-apps/api/webview';
-   * import { LogicalSize } from '@tauri-apps/api/dpi';
+   * import { getCurrentWebview } from '@aphrody/api/webview';
+   * import { LogicalSize } from '@aphrody/api/dpi';
    * await getCurrentWebview().setSize(new LogicalSize(600, 500));
    * ```
    *
@@ -542,8 +542,8 @@ class Webview {
    * Sets the webview position.
    * @example
    * ```typescript
-   * import { getCurrentWebview } from '@tauri-apps/api/webview';
-   * import { LogicalPosition } from '@tauri-apps/api/dpi';
+   * import { getCurrentWebview } from '@aphrody/api/webview';
+   * import { LogicalPosition } from '@aphrody/api/dpi';
    * await getCurrentWebview().setPosition(new LogicalPosition(600, 500));
    * ```
    *
@@ -567,7 +567,7 @@ class Webview {
    * Bring the webview to front and focus.
    * @example
    * ```typescript
-   * import { getCurrentWebview } from '@tauri-apps/api/webview';
+   * import { getCurrentWebview } from '@aphrody/api/webview';
    * await getCurrentWebview().setFocus();
    * ```
    *
@@ -586,7 +586,7 @@ class Webview {
    * Sets whether the webview should automatically grow and shrink its size and position when the parent window resizes.
    * @example
    * ```typescript
-   * import { getCurrentWebview } from '@tauri-apps/api/webview';
+   * import { getCurrentWebview } from '@aphrody/api/webview';
    * await getCurrentWebview().setAutoResize(true);
    * ```
    *
@@ -606,7 +606,7 @@ class Webview {
    * Hide the webview.
    * @example
    * ```typescript
-   * import { getCurrentWebview } from '@tauri-apps/api/webview';
+   * import { getCurrentWebview } from '@aphrody/api/webview';
    * await getCurrentWebview().hide();
    * ```
    *
@@ -625,7 +625,7 @@ class Webview {
    * Show the webview.
    * @example
    * ```typescript
-   * import { getCurrentWebview } from '@tauri-apps/api/webview';
+   * import { getCurrentWebview } from '@aphrody/api/webview';
    * await getCurrentWebview().show();
    * ```
    *
@@ -644,7 +644,7 @@ class Webview {
    * Set webview zoom level.
    * @example
    * ```typescript
-   * import { getCurrentWebview } from '@tauri-apps/api/webview';
+   * import { getCurrentWebview } from '@aphrody/api/webview';
    * await getCurrentWebview().setZoom(1.5);
    * ```
    *
@@ -665,7 +665,7 @@ class Webview {
    * Moves this webview to the window with the given label.
    * @example
    * ```typescript
-   * import { getCurrentWebview } from '@tauri-apps/api/webview';
+   * import { getCurrentWebview } from '@aphrody/api/webview';
    * await getCurrentWebview().reparent('other-window');
    * ```
    *
@@ -687,7 +687,7 @@ class Webview {
    * caches and any other data the webview stores for the loaded origins.
    * @example
    * ```typescript
-   * import { getCurrentWebview } from '@tauri-apps/api/webview';
+   * import { getCurrentWebview } from '@aphrody/api/webview';
    * await getCurrentWebview().clearAllBrowsingData();
    * ```
    *
@@ -712,7 +712,7 @@ class Webview {
    *
    * @example
    * ```typescript
-   * import { getCurrentWebview } from '@tauri-apps/api/webview';
+   * import { getCurrentWebview } from '@aphrody/api/webview';
    * await getCurrentWebview().setBackgroundColor('#2f2f2f');
    * // or with an RGBA tuple, or `null` to restore the default background
    * await getCurrentWebview().setBackgroundColor([47, 47, 47, 255]);
@@ -742,7 +742,7 @@ class Webview {
    *
    * @example
    * ```typescript
-   * import { getCurrentWebview } from "@tauri-apps/api/webview";
+   * import { getCurrentWebview } from "@aphrody/api/webview";
    * const unlisten = await getCurrentWebview().onDragDropEvent((event) => {
    *  if (event.payload.type === 'over') {
    *    console.log('User hovering', event.payload.position);

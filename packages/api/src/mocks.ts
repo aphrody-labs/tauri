@@ -18,8 +18,8 @@
  * @example
  * ```typescript
  * import { beforeEach, afterEach, expect, test } from 'vitest';
- * import { mockIPC, clearMocks } from '@tauri-apps/api/mocks';
- * import { invoke } from '@tauri-apps/api/core';
+ * import { mockIPC, clearMocks } from '@aphrody/api/mocks';
+ * import { invoke } from '@aphrody/api/core';
  *
  * afterEach(() => {
  *   clearMocks();
@@ -72,8 +72,8 @@ export interface MockIPCOptions {
  *
  * Testing setup using Vitest:
  * ```ts
- * import { mockIPC, clearMocks } from "@tauri-apps/api/mocks"
- * import { invoke } from "@tauri-apps/api/core"
+ * import { mockIPC, clearMocks } from "@aphrody/api/mocks"
+ * import { invoke } from "@aphrody/api/core"
  *
  * afterEach(() => {
  *    clearMocks()
@@ -95,8 +95,8 @@ export interface MockIPCOptions {
  *
  * The callback function can also return a Promise:
  * ```js
- * import { mockIPC, clearMocks } from "@tauri-apps/api/mocks"
- * import { invoke } from "@tauri-apps/api/core"
+ * import { mockIPC, clearMocks } from "@aphrody/api/mocks"
+ * import { invoke } from "@aphrody/api/core"
  *
  * afterEach(() => {
  *    clearMocks()
@@ -116,8 +116,8 @@ export interface MockIPCOptions {
  *
  * `listen` can also be mocked with direct calls to the `emit` function. This functionality is opt-in via the `shouldMockEvents` option:
  * ```js
- * import { mockIPC, clearMocks } from "@tauri-apps/api/mocks"
- * import { emit, listen } from "@tauri-apps/api/event"
+ * import { mockIPC, clearMocks } from "@aphrody/api/mocks"
+ * import { emit, listen } from "@aphrody/api/event"
  *
  * afterEach(() => {
  *    clearMocks()
@@ -247,7 +247,7 @@ export function mockIPC(
 
 /**
  * Mocks one or many window labels.
- * In non-tauri context it is required to call this function *before* using the `@tauri-apps/api/window` module.
+ * In non-tauri context it is required to call this function *before* using the `@aphrody/api/window` module.
  *
  * This function only mocks the *presence* of windows,
  * window properties (e.g. width and height) can be mocked like regular IPC calls using the `mockIPC` function.
@@ -255,8 +255,8 @@ export function mockIPC(
  * # Examples
  *
  * ```js
- * import { mockWindows } from "@tauri-apps/api/mocks";
- * import { getCurrentWindow } from "@tauri-apps/api/window";
+ * import { mockWindows } from "@aphrody/api/mocks";
+ * import { getCurrentWindow } from "@aphrody/api/window";
  *
  * mockWindows("main", "second", "third");
  *
@@ -266,7 +266,7 @@ export function mockIPC(
  * ```
  *
  * ```js
- * import { mockWindows } from "@tauri-apps/api/mocks";
+ * import { mockWindows } from "@aphrody/api/mocks";
  *
  * mockWindows("main", "second", "third");
  *
@@ -276,7 +276,7 @@ export function mockIPC(
  *  }
  * });
  *
- * const { emit } = await import("@tauri-apps/api/event");
+ * const { emit } = await import("@aphrody/api/event");
  * await emit('loaded'); // this will cause the mocked IPC handler to log to the console.
  * ```
  *
@@ -301,8 +301,8 @@ export function mockWindows(
  *
  * @example
  * ```js
- * import { mockConvertFileSrc } from "@tauri-apps/api/mocks";
- * import { convertFileSrc } from "@tauri-apps/api/core";
+ * import { mockConvertFileSrc } from "@aphrody/api/mocks";
+ * import { convertFileSrc } from "@aphrody/api/core";
  *
  * mockConvertFileSrc("windows")
  *
@@ -333,7 +333,7 @@ export function mockConvertFileSrc(osName: string): void {
  * # Example
  *
  * ```js
- * import { mockWindows, clearMocks } from "@tauri-apps/api/mocks"
+ * import { mockWindows, clearMocks } from "@aphrody/api/mocks"
  *
  * afterEach(() => {
  *    clearMocks()

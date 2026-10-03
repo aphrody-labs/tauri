@@ -59,7 +59,7 @@ pub fn run(options: Options, dirs: &Dirs) -> Result<()> {
 
   let plugin_snake_case = plugin.replace('-', "_");
   let crate_name = format!("tauri-plugin-{plugin}");
-  let npm_name = format!("@tauri-apps/plugin-{plugin}");
+  let npm_name = format!("@aphrody/plugin-{plugin}");
 
   let git_ref = git_ref(
     options.tag.as_deref(),

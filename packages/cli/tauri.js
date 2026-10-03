@@ -14,7 +14,7 @@ const binStem = path.parse(bin).name.toLowerCase()
 // can successfully detect what command likely started the execution.
 let binName
 
-// deno run -A npm:@tauri-apps/cli or deno task tauri
+// deno run -A npm:@aphrody/cli or deno task tauri
 if (globalThis.navigator?.userAgent?.includes('Deno')) {
   binName = bin
 }

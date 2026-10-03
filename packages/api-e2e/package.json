@@ -1,8 +1,8 @@
 {
-  "name": "@tauri-apps/api-e2e",
+  "name": "@aphrody/api-e2e",
   "private": true,
   "version": "0.0.0",
-  "description": "End-to-end test suite for @tauri-apps/api, driven against the examples/api app via WebdriverIO.",
+  "description": "End-to-end test suite for @aphrody/api, driven against the examples/api app via WebdriverIO.",
   "license": "Apache-2.0 OR MIT",
   "type": "module",
   "scripts": {
@@ -17,7 +17,7 @@
   "devDependencies": {
     "@crabnebula/tauri-driver": "^2.0.9",
     "@crabnebula/test-runner-backend": "^0.3.0",
-    "@tauri-apps/api": "../api/dist",
+    "@aphrody/api": "../api/dist",
     "@types/node": "^22.10.0",
     "@wdio/appium-service": "^9.31.9",
     "@wdio/cli": "^9.31.9",

@@ -174,7 +174,7 @@ export interface TrayIconOptions {
  *
  * @example
  * ```ts
- * import { TrayIcon } from '@tauri-apps/api/tray';
+ * import { TrayIcon } from '@aphrody/api/tray';
  * const tray = await TrayIcon.new({ tooltip: 'awesome tray tooltip' });
  * await tray.setTooltip('new tooltip');
  * ```
@@ -196,7 +196,7 @@ export class TrayIcon extends Resource {
    *
    * @example
    * ```typescript
-   * import { TrayIcon } from '@tauri-apps/api/tray';
+   * import { TrayIcon } from '@aphrody/api/tray';
    * const tray = await TrayIcon.getById('main-tray');
    * await tray?.setTooltip('still here');
    * ```
@@ -217,7 +217,7 @@ export class TrayIcon extends Resource {
    *
    * @example
    * ```typescript
-   * import { TrayIcon } from '@tauri-apps/api/tray';
+   * import { TrayIcon } from '@aphrody/api/tray';
    * await TrayIcon.removeById('main-tray');
    * ```
    */
@@ -235,9 +235,9 @@ export class TrayIcon extends Resource {
    *
    * @example
    * ```typescript
-   * import { TrayIcon } from '@tauri-apps/api/tray';
-   * import { Menu } from '@tauri-apps/api/menu';
-   * import { defaultWindowIcon } from '@tauri-apps/api/app';
+   * import { TrayIcon } from '@aphrody/api/tray';
+   * import { Menu } from '@aphrody/api/menu';
+   * import { defaultWindowIcon } from '@aphrody/api/app';
    *
    * const menu = await Menu.new({
    *   items: [{ id: 'quit', text: 'Quit', action: () => console.log('quit') }]
@@ -290,7 +290,7 @@ export class TrayIcon extends Resource {
    *
    * @example
    * ```typescript
-   * import { Image } from '@tauri-apps/api/image';
+   * import { Image } from '@aphrody/api/image';
    * await tray.setIcon(await Image.fromPath('icons/active.png'));
    * // remove the icon
    * await tray.setIcon(null);
@@ -313,7 +313,7 @@ export class TrayIcon extends Resource {
    *
    * @example
    * ```typescript
-   * import { Menu } from '@tauri-apps/api/menu';
+   * import { Menu } from '@aphrody/api/menu';
    * const menu = await Menu.new({ items: [{ id: 'quit', text: 'Quit' }] });
    * await tray.setMenu(menu);
    * ```
@@ -383,7 +383,7 @@ export class TrayIcon extends Resource {
    *
    * @example
    * ```typescript
-   * import { appCacheDir } from '@tauri-apps/api/path';
+   * import { appCacheDir } from '@aphrody/api/path';
    * await tray.setTempDirPath(await appCacheDir());
    * ```
    */
@@ -425,7 +425,7 @@ export class TrayIcon extends Resource {
    *
    * @example
    * ```typescript
-   * import { Image } from '@tauri-apps/api/image';
+   * import { Image } from '@aphrody/api/image';
    * await tray.setIconWithAsTemplate(await Image.fromPath('icons/active.png'), true);
    * ```
    */

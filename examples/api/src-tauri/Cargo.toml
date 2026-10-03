@@ -23,7 +23,7 @@ log = "0.4.21"
 tauri-plugin-sample = { path = "./tauri-plugin-sample/" }
 tauri-plugin-log = "3.0.0-alpha.1"
 
-# WebDriver automation bridge, used by the `@tauri-apps/api` e2e suite (packages/api-e2e).
+# WebDriver automation bridge, used by the `@aphrody/api` e2e suite (packages/api-e2e).
 # Desktop-only and behind the off-by-default `automation` feature so it never ships in a
 # regular build.
 [target."cfg(not(any(target_os = \"android\", target_os = \"ios\")))".dependencies]

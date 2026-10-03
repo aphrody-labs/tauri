@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { getCurrentWebviewWindow } from '@tauri-apps/api/webviewWindow'
-  import { Channel, invoke } from '@tauri-apps/api/core'
+  import { getCurrentWebviewWindow } from '@aphrody/api/webviewWindow'
+  import { Channel, invoke } from '@aphrody/api/core'
   import { onMount, onDestroy } from 'svelte'
-  import type { UnlistenFn } from '@tauri-apps/api/event'
+  import type { UnlistenFn } from '@aphrody/api/event'
   import type { ViewProps } from '../App.svelte'
 
   let { onMessage }: ViewProps = $props()

@@ -233,7 +233,7 @@ pub fn command(mut options: Options) -> Result<()> {
       let mut dir = current_dir().expect("failed to read cwd");
       let mut count = 0;
       let mut cli_node_module_path = None;
-      let cli_path = "node_modules/@tauri-apps/cli";
+      let cli_path = "node_modules/@aphrody/cli";
 
       // only go up three folders max
       while count <= 2 {

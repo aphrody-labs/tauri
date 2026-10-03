@@ -765,7 +765,7 @@ mod test {
   #[test]
   fn migrate_full() {
     let original = serde_json::json!({
-      "$schema": "../node_modules/@tauri-apps/cli/schema.json",
+      "$schema": "../node_modules/@aphrody/cli/schema.json",
       "build": {
         "distDir": "../dist",
         "devPath": "http://localhost:1240",

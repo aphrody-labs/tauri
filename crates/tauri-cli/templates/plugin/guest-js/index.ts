@@ -1,7 +1,7 @@
 {{#if license_header}}
 {{ license_header }}
 {{/if}}
-import { invoke } from '@tauri-apps/api/core'
+import { invoke } from '@aphrody/api/core'
 
 export async function ping(value: string): Promise<string | null> {
   return await invoke<{value?: string}>('plugin:{{ plugin_name }}|ping', {

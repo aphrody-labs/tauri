@@ -52,7 +52,7 @@ This is common code that is reused in many places and offers useful utilities li
 
 ### Tauri Tooling
 
-#### [@tauri-apps/api](https://github.com/tauri-apps/tauri/tree/dev/packages/api) [TS -> JS]
+#### [@aphrody/api](https://github.com/tauri-apps/tauri/tree/dev/packages/api) [TS -> JS]
 
 A TypeScript library that creates `cjs` and `esm` JavaScript endpoints for you to import into your Frontend framework so that the Webview can call and listen to backend activity. We also ship the pure TypeScript, because for some frameworks this is more optimal. It uses the message passing of webviews to their hosts.
 
@@ -60,7 +60,7 @@ A TypeScript library that creates `cjs` and `esm` JavaScript endpoints for you t
 
 The bundler is a library that builds a Tauri App for the platform triple it detects / is told. At the moment it currently supports macOS, Windows and Linux - but in the near future will support mobile platforms as well. May be used outside of Tauri projects.
 
-#### [@tauri-apps/cli](https://github.com/tauri-apps/tauri/tree/dev/packages/cli) [JS]
+#### [@aphrody/cli](https://github.com/tauri-apps/tauri/tree/dev/packages/cli) [JS]
 
 It is a wrapper around [tauri-cli](https://github.com/tauri-apps/tauri/blob/dev/crates/tauri-cli) using [napi-rs](https://github.com/napi-rs/napi-rs) to produce NPM packages for each platform.
 

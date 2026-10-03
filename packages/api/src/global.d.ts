@@ -10,7 +10,7 @@ import type { invoke, transformCallback, convertFileSrc } from './core'
 declare global {
   interface Window {
     /**
-     * The whole `@tauri-apps/api` package, exposed as a global object.
+     * The whole `@aphrody/api` package, exposed as a global object.
      *
      * Only defined when [`app.withGlobalTauri`](https://v2.tauri.app/reference/config/#withglobaltauri)
      * is set to `true` in `tauri.conf.json`. It is meant for vanilla JavaScript

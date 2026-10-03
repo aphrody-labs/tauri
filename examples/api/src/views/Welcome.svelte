@@ -1,12 +1,12 @@
 <script lang="ts">
-  import { invoke } from '@tauri-apps/api/core'
+  import { invoke } from '@aphrody/api/core'
   import {
     getName,
     getVersion,
     getTauriVersion,
     getBundleType,
     exit
-  } from '@tauri-apps/api/app'
+  } from '@aphrody/api/app'
   import type { ViewProps } from '../App.svelte'
 
   let { onMessage }: ViewProps = $props()
@@ -43,7 +43,7 @@
 <div class="grid gap-8 justify-items-start">
   <p>
     This is a demo of Tauri's API capabilities using the <code
-      >@tauri-apps/api</code
+      >@aphrody/api</code
     > package. It's used as the main validation app, serving as the test bed of our
     development process. In the future, this app will be used on Tauri's integration
     tests.

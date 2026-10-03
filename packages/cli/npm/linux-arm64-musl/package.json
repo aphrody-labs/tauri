@@ -1,5 +1,5 @@
 {
-  "name": "@tauri-apps/cli-linux-arm64-musl",
+  "name": "@aphrody/cli-linux-arm64-musl",
   "version": "0.0.0",
   "cpu": [
     "arm64"

@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 # SPDX-License-Identifier: MIT
 
-name: test `@tauri-apps/api` e2e (mobile)
+name: test `@aphrody/api` e2e (mobile)
 
 on:
   workflow_dispatch:
@@ -96,10 +96,10 @@ jobs:
       - name: install dependencies
         run: pnpm i --frozen-lockfile
 
-      - name: build @tauri-apps/api
+      - name: build @aphrody/api
         run: pnpm build:api
 
-      - name: build @tauri-apps/cli
+      - name: build @aphrody/cli
         # Debug profile: the suite only drives the CLI, and a debug CLI reuses the cached
         # dependencies instead of a from-scratch LTO build (5 minutes on this runner).
         run: pnpm build:cli:debug
@@ -198,10 +198,10 @@ jobs:
           pnpm exec appium driver run xcuitest download-wda -- --outdir "$RUNNER_TEMP/wda" --platform iOS --kind sim
           echo "E2E_IOS_WDA=$RUNNER_TEMP/wda/WebDriverAgentRunner-Runner.app" >> "$GITHUB_ENV"
 
-      - name: build @tauri-apps/api
+      - name: build @aphrody/api
         run: pnpm build:api
 
-      - name: build @tauri-apps/cli
+      - name: build @aphrody/cli
         # Debug profile: the suite only drives the CLI, and a debug CLI reuses the cached
         # dependencies instead of a from-scratch LTO build (10 minutes on this runner).
         run: pnpm build:cli:debug

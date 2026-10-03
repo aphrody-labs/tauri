@@ -1,5 +1,5 @@
 {
-  "name": "@tauri-apps/cli",
+  "name": "@aphrody/cli",
   "version": "3.0.0-alpha.4",
   "description": "Command line interface for building Tauri apps",
   "type": "commonjs",

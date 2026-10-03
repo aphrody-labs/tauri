@@ -117,7 +117,7 @@ impl ChannelDataIpcQueue {
 /// since [`Channel`] implements [`CommandArg`]:
 ///
 /// ```javascript
-/// import { Channel, invoke } from '@tauri-apps/api/core'
+/// import { Channel, invoke } from '@aphrody/api/core'
 ///
 /// const onProgress = new Channel()
 /// onProgress.onmessage = (message) => console.log(message)

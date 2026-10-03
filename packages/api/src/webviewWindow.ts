@@ -11,7 +11,7 @@
  * ones (`setZoom`, `clearAllBrowsingData`, ...).
  *
  * ```typescript
- * import { WebviewWindow } from '@tauri-apps/api/webviewWindow';
+ * import { WebviewWindow } from '@aphrody/api/webviewWindow';
  *
  * const settings = new WebviewWindow('settings', {
  *   url: '/settings',
@@ -92,7 +92,7 @@ class WebviewWindow {
    * Creates a new {@link Window} hosting a {@link Webview}.
    * @example
    * ```typescript
-   * import { WebviewWindow } from '@tauri-apps/api/webviewWindow'
+   * import { WebviewWindow } from '@aphrody/api/webviewWindow'
    * const webview = new WebviewWindow('my-label', {
    *   url: 'https://github.com/tauri-apps/tauri'
    * });
@@ -142,7 +142,7 @@ class WebviewWindow {
    * Gets the Webview for the webview associated with the given label.
    * @example
    * ```typescript
-   * import { WebviewWindow } from '@tauri-apps/api/webviewWindow';
+   * import { WebviewWindow } from '@aphrody/api/webviewWindow';
    * const mainWebview = WebviewWindow.getByLabel('main');
    * ```
    *
@@ -178,7 +178,7 @@ class WebviewWindow {
    *
    * @example
    * ```typescript
-   * import { WebviewWindow } from '@tauri-apps/api/webviewWindow';
+   * import { WebviewWindow } from '@aphrody/api/webviewWindow';
    * const unlisten = await WebviewWindow.getCurrent().listen<string>('state-changed', (event) => {
    *   console.log(`Got error: ${payload}`);
    * });
@@ -217,7 +217,7 @@ class WebviewWindow {
    *
    * @example
    * ```typescript
-   * import { WebviewWindow } from '@tauri-apps/api/webviewWindow';
+   * import { WebviewWindow } from '@aphrody/api/webviewWindow';
    * const unlisten = await WebviewWindow.getCurrent().once<null>('initialized', (event) => {
    *   console.log(`Webview initialized!`);
    * });
@@ -264,7 +264,7 @@ class WebviewWindow {
    *
    * @example
    * ```typescript
-   * import { getCurrentWebviewWindow } from '@tauri-apps/api/webviewWindow';
+   * import { getCurrentWebviewWindow } from '@aphrody/api/webviewWindow';
    * await getCurrentWebviewWindow().setBackgroundColor('#2f2f2f');
    * ```
    *

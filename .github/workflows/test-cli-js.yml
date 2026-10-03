@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 # SPDX-License-Identifier: MIT
 
-name: test `@tauri-apps/cli`
+name: test `@aphrody/cli`
 
 on:
   push:
@@ -12,7 +12,7 @@ on:
     paths:
       - '.github/workflows/test-cli-js.yml'
       - 'packages/cli/**'
-      # currently` @tauri-apps/cli` only tests the template
+      # currently` @aphrody/cli` only tests the template
       - 'crates/tauri-cli/templates/app/**'
 
 env:

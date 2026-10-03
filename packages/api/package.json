@@ -1,5 +1,5 @@
 {
-  "name": "@tauri-apps/api",
+  "name": "@aphrody/api",
   "version": "3.0.0-alpha.2",
   "description": "Tauri API definitions",
   "funding": {

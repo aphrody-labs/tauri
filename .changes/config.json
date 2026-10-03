@@ -121,7 +121,7 @@
     }
   },
   "packages": {
-    "@tauri-apps/api": {
+    "@aphrody/api": {
       "path": "./packages/api",
       "manager": "javascript",
       "publish": [
@@ -207,7 +207,7 @@
       "manager": "rust",
       "dependencies": ["tauri-utils", "tauri-runtime", "tauri", "tauri-macros"]
     },
-    "@tauri-apps/cli": {
+    "@aphrody/cli": {
       "path": "./packages/cli",
       "manager": "javascript",
       "dependencies": ["tauri-cli"],

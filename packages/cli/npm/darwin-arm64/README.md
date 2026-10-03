@@ -1,3 +1,3 @@
-# `@tauri-apps/cli-darwin-arm64`
+# `@aphrody/cli-darwin-arm64`
 
-This is the **aarch64-apple-darwin** binary for `@tauri-apps/cli`
+This is the **aarch64-apple-darwin** binary for `@aphrody/cli`

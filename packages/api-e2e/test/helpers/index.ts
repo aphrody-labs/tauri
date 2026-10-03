@@ -3,9 +3,9 @@
 // SPDX-License-Identifier: MIT
 
 import { browser } from '@wdio/globals'
-import type * as TauriApi from '@tauri-apps/api'
+import type * as TauriApi from '@aphrody/api'
 
-/** The full `@tauri-apps/api` surface, as exposed on `window.__TAURI__`. */
+/** The full `@aphrody/api` surface, as exposed on `window.__TAURI__`. */
 export type Api = typeof TauriApi
 
 /** OS the app under test runs on. */
@@ -191,7 +191,7 @@ export function describeApi(
     typeof optionsOrFn === 'function'
       ? [{} as DescribeApiOptions, optionsOrFn]
       : [optionsOrFn, maybeFn!]
-  const title = `@tauri-apps/api/${module}`
+  const title = `@aphrody/api/${module}`
   if (skippedModules.includes(module) || (options.desktopOnly && isMobile)) {
     describe.skip(title, fn)
   } else {

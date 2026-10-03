@@ -9,15 +9,15 @@
     EffectState,
     ProgressBarStatus,
     availableMonitors
-  } from '@tauri-apps/api/window'
-  import { WebviewWindow } from '@tauri-apps/api/webviewWindow'
+  } from '@aphrody/api/window'
+  import { WebviewWindow } from '@aphrody/api/webviewWindow'
   import type {
     CursorIcon,
     Effects,
     Monitor,
     Theme
-  } from '@tauri-apps/api/window'
-  import type { UnlistenFn } from '@tauri-apps/api/event'
+  } from '@aphrody/api/window'
+  import type { UnlistenFn } from '@aphrody/api/event'
   import type { ViewProps } from '../App.svelte'
 
   let { onMessage }: ViewProps = $props()

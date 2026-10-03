@@ -17,7 +17,7 @@ members = [
   "crates/tauri-driver",
   "crates/tauri-examples",
 
-  # @tauri-apps/cli rust project
+  # @aphrody/cli rust project
   "packages/cli",
 
   # integration tests

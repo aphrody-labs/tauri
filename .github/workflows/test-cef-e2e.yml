@@ -98,7 +98,7 @@ jobs:
 
       # The example's `tauri` script runs the local native CLI, which is what
       # detects the CEF runtime and ships the framework and helper apps on macOS.
-      - name: build @tauri-apps/cli
+      - name: build @aphrody/cli
         run: pnpm build:cli
 
       # Chromium's Linux sandbox needs either unprivileged user namespaces or a

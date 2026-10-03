@@ -142,8 +142,8 @@ pub fn items(
   let mut items = Vec::new();
   if let Some(frontend_dir) = frontend_dir {
     for (package, version) in [
-      ("@tauri-apps/api", None),
-      ("@tauri-apps/cli", Some(metadata.js_cli.version.clone())),
+      ("@aphrody/api", None),
+      ("@aphrody/cli", Some(metadata.js_cli.version.clone())),
     ] {
       let frontend_dir = frontend_dir.clone();
       let item = nodejs_section_item(package.into(), version, frontend_dir, package_manager);

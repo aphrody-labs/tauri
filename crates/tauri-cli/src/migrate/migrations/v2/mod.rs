@@ -18,7 +18,7 @@ mod source;
 
 const RUNTIME_CRATE: &str = "tauri-runtime-wry";
 
-/// Official plugins, published as `tauri-plugin-<name>` and `@tauri-apps/plugin-<name>`.
+/// Official plugins, published as `tauri-plugin-<name>` and `@aphrody/plugin-<name>`.
 const OFFICIAL_PLUGINS: &[&str] = &[
   "autostart",
   "barcode-scanner",
@@ -81,12 +81,12 @@ fn migrate_npm_dependencies(frontend_dir: &Path) -> Result<()> {
   let pm = PackageManager::from_project(frontend_dir);
   let npm_version = format!("^{}.0", generic_dependency_version());
 
-  let packages = ["@tauri-apps/cli".to_string(), "@tauri-apps/api".to_string()]
+  let packages = ["@aphrody/cli".to_string(), "@aphrody/api".to_string()]
     .into_iter()
     .chain(
       OFFICIAL_PLUGINS
         .iter()
-        .map(|plugin| format!("@tauri-apps/plugin-{plugin}")),
+        .map(|plugin| format!("@aphrody/plugin-{plugin}")),
     );
 
   let mut install_deps = Vec::new();

@@ -185,7 +185,7 @@ importers:
 
   examples/api:
     dependencies:
-      '@tauri-apps/api':
+      '@aphrody/api':
         specifier: ../../packages/api/dist
         version: link:../../packages/api/dist
     devDependencies:
@@ -289,7 +289,7 @@ importers:
       '@crabnebula/test-runner-backend':
         specifier: ^0.3.0
         version: 0.3.0
-      '@tauri-apps/api':
+      '@aphrody/api':
         specifier: ../api/dist
         version: link:../api/dist
       '@types/node':

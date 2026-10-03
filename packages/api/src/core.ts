@@ -25,7 +25,7 @@
  * `UserId::String("id")` would be serialized into `{ String: "id" }`
  * and so we need to pass the same structure back to Rust
  * ```ts
- * import { SERIALIZE_TO_IPC_FN } from "@tauri-apps/api/core"
+ * import { SERIALIZE_TO_IPC_FN } from "@aphrody/api/core"
  *
  * class UserIdString {
  *   id
@@ -94,7 +94,7 @@ function transformCallback<T = unknown>(
  *
  * @example
  * ```typescript
- * import { Channel, invoke } from '@tauri-apps/api/core';
+ * import { Channel, invoke } from '@aphrody/api/core';
  *
  * const onEvent = new Channel<string>();
  * onEvent.onmessage = (message) => {
@@ -248,7 +248,7 @@ class PluginListener {
  *
  * @example
  * ```typescript
- * import { addPluginListener } from '@tauri-apps/api/core';
+ * import { addPluginListener } from '@aphrody/api/core';
  *
  * interface ScanEvent {
  *   value: string
@@ -303,7 +303,7 @@ type PermissionState = 'granted' | 'denied' | 'prompt' | 'prompt-with-rationale'
  *
  * @example
  * ```typescript
- * import { checkPermissions, type PermissionState } from '@tauri-apps/api/core';
+ * import { checkPermissions, type PermissionState } from '@aphrody/api/core';
  *
  * interface Permissions {
  *   camera: PermissionState
@@ -333,7 +333,7 @@ async function checkPermissions<T>(plugin: string): Promise<T> {
  *
  * @example
  * ```typescript
- * import { requestPermissions, type PermissionState } from '@tauri-apps/api/core';
+ * import { requestPermissions, type PermissionState } from '@aphrody/api/core';
  *
  * interface Permissions {
  *   camera: PermissionState
@@ -378,7 +378,7 @@ async function requestPermissions<T>(plugin: string): Promise<T> {
  * ```
  *
  * ```typescript
- * import { invoke } from '@tauri-apps/api/core';
+ * import { invoke } from '@aphrody/api/core';
  * await invoke('upload', new Uint8Array([1, 2, 3]));
  * ```
  *
@@ -403,7 +403,7 @@ interface InvokeOptions {
    *
    * @example
    * ```typescript
-   * import { invoke } from '@tauri-apps/api/core';
+   * import { invoke } from '@aphrody/api/core';
    * await invoke('upload', new Uint8Array([1, 2, 3]), {
    *   headers: { 'x-file-name': 'image.png' }
    * });
@@ -416,7 +416,7 @@ interface InvokeOptions {
  * Sends a message to the backend.
  * @example
  * ```typescript
- * import { invoke } from '@tauri-apps/api/core';
+ * import { invoke } from '@aphrody/api/core';
  * await invoke('login', { user: 'tauri', password: 'poiwe3h4r5ip3yrhtew9ty' });
  * ```
  *
@@ -465,8 +465,8 @@ async function invoke<T>(
  * @param  protocol The protocol to use. Defaults to `asset`. You only need to set this when using a custom protocol.
  * @example
  * ```typescript
- * import { downloadDir, join } from '@tauri-apps/api/path';
- * import { convertFileSrc } from '@tauri-apps/api/core';
+ * import { downloadDir, join } from '@aphrody/api/path';
+ * import { convertFileSrc } from '@aphrody/api/core';
  * const downloads = await downloadDir();
  * const filePath = await join(downloads, 'photo.png');
  * const assetUrl = convertFileSrc(filePath);
@@ -497,7 +497,7 @@ function convertFileSrc(filePath: string, protocol = 'asset'): string {
  *
  * @example
  * ```typescript
- * import { Resource, invoke } from '@tauri-apps/api/core';
+ * import { Resource, invoke } from '@aphrody/api/core';
  *
  * export class DatabaseHandle extends Resource {
  *   static async open(path: string): Promise<DatabaseHandle> {
@@ -578,8 +578,8 @@ export class Resource {
  *
  * @example
  * ```typescript
- * import { isTauri } from '@tauri-apps/api/core';
- * import { getVersion } from '@tauri-apps/api/app';
+ * import { isTauri } from '@aphrody/api/core';
+ * import { getVersion } from '@aphrody/api/app';
  *
  * const version = isTauri() ? await getVersion() : 'web';
  * ```

@@ -80,7 +80,7 @@ interface Options {
  *
  * @example
  * ```typescript
- * import { listen, TauriEvent } from '@tauri-apps/api/event';
+ * import { listen, TauriEvent } from '@aphrody/api/event';
  * const unlisten = await listen(TauriEvent.WINDOW_DESTROYED, (event) => {
  *   console.log('a window was destroyed', event.payload);
  * });
@@ -164,7 +164,7 @@ async function _unlisten(event: string, eventId: number): Promise<void> {
  *
  * @example
  * ```typescript
- * import { listen } from '@tauri-apps/api/event';
+ * import { listen } from '@aphrody/api/event';
  * const unlisten = await listen<string>('error', (event) => {
  *   console.log(`Got error, payload: ${event.payload}`);
  * });
@@ -210,7 +210,7 @@ async function listen<T>(
  *
  * @example
  * ```typescript
- * import { once } from '@tauri-apps/api/event';
+ * import { once } from '@aphrody/api/event';
  * interface LoadedPayload {
  *   loggedIn: boolean,
  *   token: string
@@ -255,7 +255,7 @@ async function once<T>(
  *
  * @example
  * ```typescript
- * import { emit } from '@tauri-apps/api/event';
+ * import { emit } from '@aphrody/api/event';
  * await emit('frontend-loaded', { loggedIn: true, token: 'authToken' });
  * ```
  *
@@ -276,7 +276,7 @@ async function emit<T>(event: string, payload?: T): Promise<void> {
  *
  * @example
  * ```typescript
- * import { emitTo } from '@tauri-apps/api/event';
+ * import { emitTo } from '@aphrody/api/event';
  * await emitTo('main', 'frontend-loaded', { loggedIn: true, token: 'authToken' });
  * ```
  *

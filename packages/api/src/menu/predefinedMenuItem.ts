@@ -121,7 +121,7 @@ export interface PredefinedMenuItemOptions {
    *
    * @example
    * ```typescript
-   * import { Menu, PredefinedMenuItem, Submenu } from '@tauri-apps/api/menu';
+   * import { Menu, PredefinedMenuItem, Submenu } from '@aphrody/api/menu';
    *
    * const edit = await Submenu.new({
    *   text: 'Edit',
@@ -175,7 +175,7 @@ export class PredefinedMenuItem extends MenuItemBase {
    *
    * @example
    * ```typescript
-   * import { PredefinedMenuItem } from '@tauri-apps/api/menu';
+   * import { PredefinedMenuItem } from '@aphrody/api/menu';
    * const separator = await PredefinedMenuItem.new({ item: 'Separator' });
    * ```
    */

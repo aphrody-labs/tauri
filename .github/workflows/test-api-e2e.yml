@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 # SPDX-License-Identifier: MIT
 
-name: test `@tauri-apps/api` e2e
+name: test `@aphrody/api` e2e
 
 on:
   workflow_dispatch:
@@ -173,11 +173,11 @@ jobs:
         if: runner.os != 'macOS' || env.HAS_CN_API_KEY == 'true'
         run: pnpm i --frozen-lockfile
 
-      - name: build @tauri-apps/api
+      - name: build @aphrody/api
         if: runner.os != 'macOS' || env.HAS_CN_API_KEY == 'true'
         run: pnpm build:api
 
-      - name: build @tauri-apps/cli
+      - name: build @aphrody/cli
         if: runner.os != 'macOS' || env.HAS_CN_API_KEY == 'true'
         # Debug profile: the suite builds the example app with `tauri build --debug` anyway, and
         # a debug CLI reuses the cached dependencies instead of a from-scratch LTO build.

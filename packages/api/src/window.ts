@@ -9,7 +9,7 @@
  *
  * Events can be listened to using {@link Window.listen}:
  * ```typescript
- * import { getCurrentWindow } from "@tauri-apps/api/window";
+ * import { getCurrentWindow } from "@aphrody/api/window";
  * getCurrentWindow().listen("my-window-event", ({ event, payload }) => { });
  * ```
  *
@@ -69,8 +69,8 @@ export interface Monitor {
    * Note that window creation options such as `x`, `y`, `width` and `height` expect
    * logical pixels, so convert with {@linkcode Monitor.scaleFactor} first:
    * ```typescript
-   * import { currentMonitor } from '@tauri-apps/api/window';
-   * import { WebviewWindow } from '@tauri-apps/api/webviewWindow';
+   * import { currentMonitor } from '@aphrody/api/window';
+   * import { WebviewWindow } from '@aphrody/api/webviewWindow';
    *
    * const monitor = await currentMonitor();
    * if (monitor) {
@@ -274,7 +274,7 @@ export enum ProgressBarStatus {
  *
  * @example
  * ```typescript
- * import { getCurrentWindow } from '@tauri-apps/api/window';
+ * import { getCurrentWindow } from '@aphrody/api/window';
  * // at least 300 logical pixels wide, height unconstrained
  * await getCurrentWindow().setSizeConstraints({ minWidth: 300 });
  * ```
@@ -354,7 +354,7 @@ export type WindowLabel = string
  *
  * @example
  * ```typescript
- * import { Window } from "@tauri-apps/api/window"
+ * import { Window } from "@aphrody/api/window"
  *
  * const appWindow = new Window('theUniqueLabel');
  *
@@ -385,7 +385,7 @@ class Window {
    * Creates a new Window.
    * @example
    * ```typescript
-   * import { Window } from '@tauri-apps/api/window';
+   * import { Window } from '@aphrody/api/window';
    * const appWindow = new Window('my-label');
    * appWindow.once('tauri://created', function () {
    *  // window successfully created
@@ -428,7 +428,7 @@ class Window {
    * Gets the Window associated with the given label.
    * @example
    * ```typescript
-   * import { Window } from '@tauri-apps/api/window';
+   * import { Window } from '@aphrody/api/window';
    * const mainWindow = Window.getByLabel('main');
    * ```
    *
@@ -457,7 +457,7 @@ class Window {
    *  Gets the focused window.
    * @example
    * ```typescript
-   * import { Window } from '@tauri-apps/api/window';
+   * import { Window } from '@aphrody/api/window';
    * const focusedWindow = Window.getFocusedWindow();
    * ```
    *
@@ -477,7 +477,7 @@ class Window {
    *
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * const unlisten = await getCurrentWindow().listen<string>('state-changed', (event) => {
    *   console.log(`Got error: ${payload}`);
    * });
@@ -516,7 +516,7 @@ class Window {
    *
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * const unlisten = await getCurrentWindow().once<null>('initialized', (event) => {
    *   console.log(`Window initialized!`);
    * });
@@ -553,7 +553,7 @@ class Window {
    * Emits an event to all {@link EventTarget|targets}.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().emit('window-loaded', { loggedIn: true, token: 'authToken' });
    * ```
    *
@@ -580,7 +580,7 @@ class Window {
    *
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().emitTo('main', 'window-loaded', { loggedIn: true, token: 'authToken' });
    * ```
    * @param target Label of the target Window/Webview/WebviewWindow or raw {@link EventTarget} object.
@@ -626,7 +626,7 @@ class Window {
    * The scale factor that can be used to map physical pixels to logical pixels.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * const factor = await getCurrentWindow().scaleFactor();
    * ```
    *
@@ -642,7 +642,7 @@ class Window {
    * The position of the top-left hand corner of the window's client area relative to the top-left hand corner of the desktop.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * const position = await getCurrentWindow().innerPosition();
    * ```
    *
@@ -658,7 +658,7 @@ class Window {
    * The position of the top-left hand corner of the window relative to the top-left hand corner of the desktop.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * const position = await getCurrentWindow().outerPosition();
    * ```
    *
@@ -675,7 +675,7 @@ class Window {
    * The client area is the content of the window, excluding the title bar and borders.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * const size = await getCurrentWindow().innerSize();
    * ```
    *
@@ -695,7 +695,7 @@ class Window {
    * These dimensions include the title bar and borders. If you don't want that (and you usually don't), use inner_size instead.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * const size = await getCurrentWindow().outerSize();
    * ```
    *
@@ -714,7 +714,7 @@ class Window {
    * Gets the window's current fullscreen state.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * const fullscreen = await getCurrentWindow().isFullscreen();
    * ```
    *
@@ -730,7 +730,7 @@ class Window {
    * Gets the window's current minimized state.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * const minimized = await getCurrentWindow().isMinimized();
    * ```
    */
@@ -744,7 +744,7 @@ class Window {
    * Gets the window's current maximized state.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * const maximized = await getCurrentWindow().isMaximized();
    * ```
    *
@@ -760,7 +760,7 @@ class Window {
    * Gets the window's current focus state.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * const focused = await getCurrentWindow().isFocused();
    * ```
    *
@@ -776,7 +776,7 @@ class Window {
    * Gets the window's current decorated state.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * const decorated = await getCurrentWindow().isDecorated();
    * ```
    *
@@ -792,7 +792,7 @@ class Window {
    * Gets the window's current resizable state.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * const resizable = await getCurrentWindow().isResizable();
    * ```
    *
@@ -813,7 +813,7 @@ class Window {
    *
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * const maximizable = await getCurrentWindow().isMaximizable();
    * ```
    *
@@ -834,7 +834,7 @@ class Window {
    *
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * const minimizable = await getCurrentWindow().isMinimizable();
    * ```
    *
@@ -855,7 +855,7 @@ class Window {
    *
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * const closable = await getCurrentWindow().isClosable();
    * ```
    *
@@ -871,7 +871,7 @@ class Window {
    * Gets the window's current visible state.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * const visible = await getCurrentWindow().isVisible();
    * ```
    *
@@ -887,7 +887,7 @@ class Window {
    * Gets the window's current title.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * const title = await getCurrentWindow().title();
    * ```
    */
@@ -906,7 +906,7 @@ class Window {
    *
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * const theme = await getCurrentWindow().theme();
    * ```
    *
@@ -922,7 +922,7 @@ class Window {
    * Whether the window is configured to be always on top of other windows or not.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * const alwaysOnTop = await getCurrentWindow().isAlwaysOnTop();
    * ```
    *
@@ -951,7 +951,7 @@ class Window {
    *
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * const activity = await getCurrentWindow().activityName();
    * ```
    *
@@ -985,7 +985,7 @@ class Window {
    *
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * const scene = await getCurrentWindow().sceneIdentifier();
    * ```
    *
@@ -1008,7 +1008,7 @@ class Window {
    * Centers the window.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().center();
    * ```
    *
@@ -1037,7 +1037,7 @@ class Window {
    * - **Linux:** Urgency levels have the same effect.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().requestUserAttention();
    * ```
    *
@@ -1068,7 +1068,7 @@ class Window {
    * Updates the window resizable flag.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().setResizable(false);
    * ```
    *
@@ -1088,7 +1088,7 @@ class Window {
    * Enable or disable the window.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().setEnabled(false);
    * ```
    *
@@ -1113,7 +1113,7 @@ class Window {
    *
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * const enabled = await getCurrentWindow().isEnabled();
    * ```
    *
@@ -1138,7 +1138,7 @@ class Window {
    *
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().setMaximizable(false);
    * ```
    *
@@ -1163,7 +1163,7 @@ class Window {
    *
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().setMinimizable(false);
    * ```
    *
@@ -1189,7 +1189,7 @@ class Window {
    *
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().setClosable(false);
    * ```
    *
@@ -1209,7 +1209,7 @@ class Window {
    * Sets the window title.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().setTitle('Tauri');
    * ```
    *
@@ -1230,7 +1230,7 @@ class Window {
    * Maximizes the window.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().maximize();
    * ```
    *
@@ -1249,7 +1249,7 @@ class Window {
    * Unmaximizes the window.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().unmaximize();
    * ```
    *
@@ -1268,7 +1268,7 @@ class Window {
    * Toggles the window maximized state.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().toggleMaximize();
    * ```
    *
@@ -1287,7 +1287,7 @@ class Window {
    * Minimizes the window.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().minimize();
    * ```
    *
@@ -1306,7 +1306,7 @@ class Window {
    * Unminimizes the window.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().unminimize();
    * ```
    *
@@ -1325,7 +1325,7 @@ class Window {
    * Sets the window visibility to true.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().show();
    * ```
    *
@@ -1344,7 +1344,7 @@ class Window {
    * Sets the window visibility to false.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().hide();
    * ```
    *
@@ -1365,7 +1365,7 @@ class Window {
    * Note this emits a closeRequested event so you can intercept it. To force window close, use {@link Window.destroy}.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().close();
    * ```
    *
@@ -1384,7 +1384,7 @@ class Window {
    * Destroys the window. Behaves like {@link Window.close} but forces the window close instead of emitting a closeRequested event.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().destroy();
    * ```
    *
@@ -1403,7 +1403,7 @@ class Window {
    * Whether the window should have borders and bars.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().setDecorations(false);
    * ```
    *
@@ -1433,7 +1433,7 @@ class Window {
    *
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().setShadow(false);
    * ```
    *
@@ -1469,7 +1469,7 @@ class Window {
    *
    * @example
    * ```typescript
-   * import { getCurrentWindow, Effect, EffectState } from '@tauri-apps/api/window';
+   * import { getCurrentWindow, Effect, EffectState } from '@aphrody/api/window';
    *
    * await getCurrentWindow().setEffects({
    *   effects: [Effect.Mica, Effect.Acrylic, Effect.UnderWindowBackground],
@@ -1498,7 +1498,7 @@ class Window {
    *
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().clearEffects();
    * ```
    *
@@ -1520,7 +1520,7 @@ class Window {
    * Whether the window should always be on top of other windows.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().setAlwaysOnTop(true);
    * ```
    *
@@ -1541,7 +1541,7 @@ class Window {
    * Whether the window should always be below other windows.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().setAlwaysOnBottom(true);
    * ```
    *
@@ -1562,7 +1562,7 @@ class Window {
    * Prevents the window contents from being captured by other apps.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().setContentProtected(true);
    * ```
    *
@@ -1582,7 +1582,7 @@ class Window {
    * Resizes the window with a new inner size.
    * @example
    * ```typescript
-   * import { getCurrentWindow, LogicalSize } from '@tauri-apps/api/window';
+   * import { getCurrentWindow, LogicalSize } from '@aphrody/api/window';
    * await getCurrentWindow().setSize(new LogicalSize(600, 500));
    * ```
    *
@@ -1603,7 +1603,7 @@ class Window {
    * Sets the window minimum inner size. If the `size` argument is not provided, the constraint is unset.
    * @example
    * ```typescript
-   * import { getCurrentWindow, PhysicalSize } from '@tauri-apps/api/window';
+   * import { getCurrentWindow, PhysicalSize } from '@aphrody/api/window';
    * await getCurrentWindow().setMinSize(new PhysicalSize(600, 500));
    * ```
    *
@@ -1626,7 +1626,7 @@ class Window {
    * Sets the window maximum inner size. If the `size` argument is undefined, the constraint is unset.
    * @example
    * ```typescript
-   * import { getCurrentWindow, LogicalSize } from '@tauri-apps/api/window';
+   * import { getCurrentWindow, LogicalSize } from '@aphrody/api/window';
    * await getCurrentWindow().setMaxSize(new LogicalSize(600, 500));
    * ```
    *
@@ -1649,7 +1649,7 @@ class Window {
    * Sets the window inner size constraints.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().setSizeConstraints({ minWidth: 300 });
    * ```
    *
@@ -1683,7 +1683,7 @@ class Window {
    * Sets the window outer position.
    * @example
    * ```typescript
-   * import { getCurrentWindow, LogicalPosition } from '@tauri-apps/api/window';
+   * import { getCurrentWindow, LogicalPosition } from '@aphrody/api/window';
    * await getCurrentWindow().setPosition(new LogicalPosition(600, 500));
    * ```
    *
@@ -1706,7 +1706,7 @@ class Window {
    * Sets the window fullscreen state.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().setFullscreen(true);
    * ```
    *
@@ -1729,7 +1729,7 @@ class Window {
    * Does nothing if no monitor contains the position.
    * @example
    * ```typescript
-   * import { getCurrentWindow, availableMonitors } from '@tauri-apps/api/window';
+   * import { getCurrentWindow, availableMonitors } from '@aphrody/api/window';
    * const monitors = await availableMonitors();
    * if (monitors.length > 1) {
    *   await getCurrentWindow().setFullscreenOnMonitor(monitors[1].position);
@@ -1759,7 +1759,7 @@ class Window {
    *
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().setSimpleFullscreen(true);
    * ```
    *
@@ -1782,7 +1782,7 @@ class Window {
    * Bring the window to front and focus.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().setFocus();
    * ```
    *
@@ -1807,7 +1807,7 @@ class Window {
    *
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().setFocusable(true);
    * ```
    *
@@ -1828,7 +1828,7 @@ class Window {
    * Sets the window icon.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().setIcon('/tauri/awesome.png');
    * ```
    *
@@ -1860,7 +1860,7 @@ class Window {
    * - **macOS:** Unsupported.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().setSkipTaskbar(true);
    * ```
    *
@@ -1889,7 +1889,7 @@ class Window {
    * - **macOS:** This locks the cursor in a fixed location, which looks visually awkward.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().setCursorGrab(true);
    * ```
    *
@@ -1916,7 +1916,7 @@ class Window {
    *   outside of the window.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().setCursorVisible(false);
    * ```
    *
@@ -1937,7 +1937,7 @@ class Window {
    * Modifies the cursor icon of the window.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().setCursorIcon('help');
    * ```
    *
@@ -1968,7 +1968,7 @@ class Window {
    *
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().setBackgroundColor('#2f2f2f');
    * // also accepts an RGB/RGBA tuple or an object
    * await getCurrentWindow().setBackgroundColor([47, 47, 47, 255]);
@@ -1993,7 +1993,7 @@ class Window {
    * Changes the position of the cursor in window coordinates.
    * @example
    * ```typescript
-   * import { getCurrentWindow, LogicalPosition } from '@tauri-apps/api/window';
+   * import { getCurrentWindow, LogicalPosition } from '@aphrody/api/window';
    * await getCurrentWindow().setCursorPosition(new LogicalPosition(600, 300));
    * ```
    *
@@ -2017,7 +2017,7 @@ class Window {
    *
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().setIgnoreCursorEvents(true);
    * ```
    *
@@ -2038,7 +2038,7 @@ class Window {
    * Starts dragging the window.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().startDragging();
    * ```
    *
@@ -2057,7 +2057,7 @@ class Window {
    * Starts resize-dragging the window.
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().startResizeDragging();
    * ```
    *
@@ -2082,7 +2082,7 @@ class Window {
    *
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().setBadgeCount(5);
    * ```
    *
@@ -2107,7 +2107,7 @@ class Window {
    *
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().setBadgeLabel("Hello");
    * ```
    *
@@ -2139,7 +2139,7 @@ class Window {
    *
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().setOverlayIcon("/tauri/awesome.png");
    * ```
    *
@@ -2166,7 +2166,7 @@ class Window {
    *
    * @example
    * ```typescript
-   * import { getCurrentWindow, ProgressBarStatus } from '@tauri-apps/api/window';
+   * import { getCurrentWindow, ProgressBarStatus } from '@aphrody/api/window';
    * await getCurrentWindow().setProgressBar({
    *   status: ProgressBarStatus.Normal,
    *   progress: 50,
@@ -2194,7 +2194,7 @@ class Window {
    *
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().setVisibleOnAllWorkspaces(true);
    * ```
    *
@@ -2223,7 +2223,7 @@ class Window {
    *
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().setTitleBarStyle('overlay');
    * ```
    *
@@ -2255,7 +2255,7 @@ class Window {
    *
    * @example
    * ```typescript
-   * import { getCurrentWindow } from '@tauri-apps/api/window';
+   * import { getCurrentWindow } from '@aphrody/api/window';
    * await getCurrentWindow().setTheme('dark');
    * // follow the system theme again
    * await getCurrentWindow().setTheme(null);
@@ -2283,7 +2283,7 @@ class Window {
    *
    * @example
    * ```typescript
-   * import { getCurrentWindow } from "@tauri-apps/api/window";
+   * import { getCurrentWindow } from "@aphrody/api/window";
    * const unlisten = await getCurrentWindow().onResized(({ payload: size }) => {
    *  console.log('Window resized', size);
    * });
@@ -2311,7 +2311,7 @@ class Window {
    *
    * @example
    * ```typescript
-   * import { getCurrentWindow } from "@tauri-apps/api/window";
+   * import { getCurrentWindow } from "@aphrody/api/window";
    * const unlisten = await getCurrentWindow().onMoved(({ payload: position }) => {
    *  console.log('Window moved', position);
    * });
@@ -2339,10 +2339,10 @@ class Window {
    *
    * @example
    * ```typescript
-   * import { getCurrentWindow } from "@tauri-apps/api/window";
+   * import { getCurrentWindow } from "@aphrody/api/window";
    * // `confirm` comes from the dialog plugin, which you have to add separately:
    * // `pnpm tauri add dialog`
-   * import { confirm } from '@tauri-apps/plugin-dialog';
+   * import { confirm } from '@aphrody/plugin-dialog';
    * const unlisten = await getCurrentWindow().onCloseRequested(async (event) => {
    *   const confirmed = await confirm('Are you sure?');
    *   if (!confirmed) {
@@ -2382,7 +2382,7 @@ class Window {
    *
    * @example
    * ```typescript
-   * import { getCurrentWindow } from "@tauri-apps/api/window";
+   * import { getCurrentWindow } from "@aphrody/api/window";
    * const unlisten = await getCurrentWindow().onDragDropEvent((event) => {
    *  if (event.payload.type === 'over') {
    *    console.log('User hovering', event.payload.position);
@@ -2470,7 +2470,7 @@ class Window {
    *
    * @example
    * ```typescript
-   * import { getCurrentWindow } from "@tauri-apps/api/window";
+   * import { getCurrentWindow } from "@aphrody/api/window";
    * const unlisten = await getCurrentWindow().onFocusChanged(({ payload: focused }) => {
    *  console.log('Focus changed, window is focused? ' + focused);
    * });
@@ -2514,7 +2514,7 @@ class Window {
    *
    * @example
    * ```typescript
-   * import { getCurrentWindow } from "@tauri-apps/api/window";
+   * import { getCurrentWindow } from "@aphrody/api/window";
    * const unlisten = await getCurrentWindow().onScaleChanged(({ payload }) => {
    *  console.log('Scale changed', payload.scaleFactor, payload.size);
    * });
@@ -2544,7 +2544,7 @@ class Window {
    *
    * @example
    * ```typescript
-   * import { getCurrentWindow } from "@tauri-apps/api/window";
+   * import { getCurrentWindow } from "@aphrody/api/window";
    * const unlisten = await getCurrentWindow().onThemeChanged(({ payload: theme }) => {
    *  console.log('New theme: ' + theme);
    * });
@@ -3088,7 +3088,7 @@ function mapMonitor(m: Monitor | null): Monitor | null {
  * Returns `null` if current monitor can't be detected.
  * @example
  * ```typescript
- * import { currentMonitor } from '@tauri-apps/api/window';
+ * import { currentMonitor } from '@aphrody/api/window';
  * const monitor = await currentMonitor();
  * ```
  *
@@ -3105,7 +3105,7 @@ async function currentMonitor(): Promise<Monitor | null> {
  * Returns `null` if it can't identify any monitor as a primary one.
  * @example
  * ```typescript
- * import { primaryMonitor } from '@tauri-apps/api/window';
+ * import { primaryMonitor } from '@aphrody/api/window';
  * const monitor = await primaryMonitor();
  * ```
  *
@@ -3121,7 +3121,7 @@ async function primaryMonitor(): Promise<Monitor | null> {
  * Returns the monitor that contains the given point. Returns `null` if can't find any.
  * @example
  * ```typescript
- * import { monitorFromPoint } from '@tauri-apps/api/window';
+ * import { monitorFromPoint } from '@aphrody/api/window';
  * const monitor = await monitorFromPoint(100.0, 200.0);
  * ```
  *
@@ -3138,7 +3138,7 @@ async function monitorFromPoint(x: number, y: number): Promise<Monitor | null> {
  * Returns the list of all the monitors available on the system.
  * @example
  * ```typescript
- * import { availableMonitors } from '@tauri-apps/api/window';
+ * import { availableMonitors } from '@aphrody/api/window';
  * const monitors = await availableMonitors();
  * ```
  *
@@ -3162,7 +3162,7 @@ async function availableMonitors(): Promise<Monitor[]> {
  *
  * @example
  * ```typescript
- * import { cursorPosition } from '@tauri-apps/api/window';
+ * import { cursorPosition } from '@aphrody/api/window';
  * const position = await cursorPosition();
  * console.log(position.x, position.y);
  * ```
