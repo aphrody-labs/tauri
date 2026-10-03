@@ -10,28 +10,30 @@
     "type": "git",
     "url": "https://github.com/tauri-apps/tauri.git"
   },
+  "engines": {
+    "bun": ">=1.4.2"
+  },
   "scripts": {
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "eslint:check": "pnpm run -r eslint:check",
-    "ts:check": "pnpm run -r ts:check",
-    "build": "pnpm run -F !api build && pnpm run -F api build",
-    "build:debug": "pnpm run -F !api build:debug && pnpm run -F api build:debug",
-    "build:api": "pnpm run --filter \"@tauri-apps/api\" build",
-    "build:api:debug": "pnpm run --filter \"@tauri-apps/api\" build:debug",
-    "build:cli": "pnpm run --filter \"@tauri-apps/cli\" build",
-    "build:cli:debug": "pnpm run --filter \"@tauri-apps/cli\" build:debug",
-    "test": "pnpm run -r test",
-    "test:api-e2e": "pnpm run --filter \"@tauri-apps/api-e2e\" e2e",
-    "test:api-e2e:android": "pnpm run --filter \"@tauri-apps/api-e2e\" e2e:android",
-    "test:api-e2e:ios": "pnpm run --filter \"@tauri-apps/api-e2e\" e2e:ios",
-    "test:api-e2e:cef": "pnpm run --filter \"@tauri-apps/api-e2e\" e2e:cef",
-    "test:cef-e2e": "pnpm run --filter \"cef-example\" e2e",
-    "example:api:dev": "pnpm run --filter \"api\" tauri dev"
+    "eslint:check": "bun run --filter '*' eslint:check",
+    "ts:check": "bun run --filter '*' ts:check",
+    "build": "bun run --filter '!@tauri-apps/api' build && bun run --filter '@tauri-apps/api' build",
+    "build:debug": "bun run --filter '!@tauri-apps/api' build:debug && bun run --filter '@tauri-apps/api' build:debug",
+    "build:api": "bun run --filter '@tauri-apps/api' build",
+    "build:api:debug": "bun run --filter '@tauri-apps/api' build:debug",
+    "build:cli": "bun run --filter '@tauri-apps/cli' build",
+    "build:cli:debug": "bun run --filter '@tauri-apps/cli' build:debug",
+    "test": "bun test",
+    "test:api-e2e": "bun run --filter '@tauri-apps/api-e2e' e2e",
+    "test:api-e2e:android": "bun run --filter '@tauri-apps/api-e2e' e2e:android",
+    "test:api-e2e:ios": "bun run --filter '@tauri-apps/api-e2e' e2e:ios",
+    "test:api-e2e:cef": "bun run --filter '@tauri-apps/api-e2e' e2e:cef",
+    "test:cef-e2e": "bun run --filter 'cef-example' e2e",
+    "example:api:dev": "bun run --filter 'api' tauri dev"
   },
   "devDependencies": {
     "prettier": "^3.8.1"
   },
-  "minimumReleaseAge": 4320,
-  "packageManager": "pnpm@12.4.2"
+  "minimumReleaseAge": 4320
 }

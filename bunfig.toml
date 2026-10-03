@@ -1,0 +1,11 @@
+# Tauri Workspace — 100% Native Bun Configuration
+[install]
+exact = true
+auto = "auto"
+production = false
+
+[run]
+bun = true
+
+[test]
+coverage = false
