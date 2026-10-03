@@ -24,7 +24,7 @@ export default {
     })
   ],
   external: [
-    /^@tauri-apps\/api/,
+    /^@aphrody\/api/,
     ...Object.keys(pkg.dependencies || {}),
     ...Object.keys(pkg.peerDependencies || {})
   ]
