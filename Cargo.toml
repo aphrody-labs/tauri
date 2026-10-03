@@ -86,6 +86,8 @@ opt-level = "s"
 tauri = { path = "./crates/tauri" }
 tauri-plugin = { path = "./crates/tauri-plugin" }
 tauri-utils = { path = "./crates/tauri-utils" }
+wry = { git = "https://github.com/aphrody-labs/wry", branch = "yolo" }
+tao = { git = "https://github.com/aphrody-labs/tao", branch = "yolo" }
 
 [workspace.lints.clippy]
 # TODO: Update in next PR to keep changes small, see https://github.com/tauri-apps/tauri/pull/16029
