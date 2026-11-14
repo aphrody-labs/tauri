@@ -65,12 +65,31 @@ impl Display for PackageManager {
 }
 
 impl PackageManager {
-  /// Detects package manager from the given directory, falls back to [`PackageManager::Npm`].
+  /// Detects package manager from the given directory.
+  ///
+  /// Falls back to [`PackageManager::Bun`] when it is installed, otherwise [`PackageManager::Npm`].
   pub fn from_project<P: AsRef<Path>>(path: P) -> Self {
     Self::all_from_project(path)
       .first()
       .copied()
-      .unwrap_or(Self::Npm)
+      .unwrap_or_else(|| {
+        if manager_version("bun").is_some() {
+          Self::Bun
+        } else {
+          Self::Npm
+        }
+      })
+  }
+
+  /// Detection order when several lockfiles exist: bun first.
+  fn priority(self) -> u8 {
+    match self {
+      Self::Bun => 0,
+      Self::Deno => 1,
+      Self::Pnpm => 2,
+      Self::Yarn | Self::YarnBerry => 3,
+      Self::Npm => 4,
+    }
   }
 
   /// Detects package manager from the `npm_config_user_agent` environment variable
@@ -109,6 +128,9 @@ impl PackageManager {
       }
     }
 
+    // `read_dir` order is unspecified: sort so that bun wins over the other lockfiles
+    found.sort_by_key(|pm| pm.priority());
+    found.dedup();
     found
   }
 

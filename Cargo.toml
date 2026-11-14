@@ -82,6 +82,16 @@ lto = true
 incremental = false
 opt-level = "s"
 
+# fat-LTO release for LLVM builds (rustc and lld on the same LLVM): speed over size
+[profile.release-lto]
+inherits = "release"
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+strip = true
+incremental = false
+opt-level = 3
+
 [patch.crates-io]
 tauri = { path = "./crates/tauri" }
 tauri-plugin = { path = "./crates/tauri-plugin" }

@@ -175,7 +175,7 @@ fn default_dev_command(pm: PackageManager) -> &'static str {
     PackageManager::YarnBerry => "yarn dev",
     PackageManager::Npm => "npm run dev",
     PackageManager::Pnpm => "pnpm dev",
-    PackageManager::Bun => "bun dev",
+    PackageManager::Bun => "bun run dev",
     PackageManager::Deno => "deno task dev",
   }
 }
@@ -186,7 +186,7 @@ fn default_build_command(pm: PackageManager) -> &'static str {
     PackageManager::YarnBerry => "yarn build",
     PackageManager::Npm => "npm run build",
     PackageManager::Pnpm => "pnpm build",
-    PackageManager::Bun => "bun build",
+    PackageManager::Bun => "bun run build",
     PackageManager::Deno => "deno task build",
   }
 }
